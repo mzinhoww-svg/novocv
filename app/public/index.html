@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vaga Certa</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#14181f;--mute:#5d6674;--line:#dfe3e8;--brand:#1f5eff;--ok:#12805c;--warn:#b25e09}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1217;--card:#181c23;--ink:#eef1f5;--mute:#9aa4b2;--line:#2a313c;--brand:#6c93ff;--ok:#3fc79a;--warn:#f0a35a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:24px 16px 64px}
+h1{font-size:22px;margin:0 0 4px}h2{font-size:15px;margin:0 0 10px}
+.sub{color:var(--mute);margin:0 0 20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;margin-bottom:16px}
+.row{display:flex;gap:10px;flex-wrap:wrap}.row>*{flex:1 1 200px}
+label{display:block;font-size:13px;color:var(--mute);margin:0 0 4px}
+input,textarea,select{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit}
+textarea{min-height:180px;resize:vertical;font-family:ui-monospace,monospace;font-size:13px}
+button{padding:9px 16px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;cursor:pointer}
+button.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+button:disabled{opacity:.5;cursor:wait}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.chip{padding:2px 10px;border-radius:99px;border:1px solid var(--line);font-size:13px}
+.chip.ats{border-color:var(--brand);color:var(--brand)}
+.err{color:#d33;margin:8px 0}.hint{color:var(--mute);font-size:13px}
+.out{white-space:pre-wrap;font-family:ui-sans-serif,system-ui;border:1px solid var(--line);border-radius:8px;padding:12px;background:var(--bg);min-height:120px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:800px){.grid{grid-template-columns:1fr}}
+.score{font-size:28px;font-weight:700}
+ul{margin:4px 0 0;padding-left:20px}
+.hidden{display:none}
+@media print{body *{visibility:hidden}.printing,.printing *{visibility:visible}.printing{position:absolute;left:0;top:0;width:100%}}
+</style>
+</head>
+<body>
+<main>
+  <h1>Vaga Certa</h1>
+  <p class="sub">Cole o link da vaga. O app lê a descrição, identifica empresa e ATS, e adapta seu CV e sua carta com a IA do OpenRouter.</p>
+
+  <section class="card">
+    <h2>1. Configuração</h2>
+    <div class="row">
+      <div><label for="key">Chave do OpenRouter</label><input id="key" type="password" placeholder="sk-or-..." autocomplete="off"></div>
+      <div><label for="model">Modelo</label><input id="model" list="models" value="anthropic/claude-sonnet-4.5">
+        <datalist id="models"><option value="anthropic/claude-sonnet-4.5"><option value="openai/gpt-4o"><option value="google/gemini-2.5-pro"><option value="meta-llama/llama-3.3-70b-instruct"></datalist></div>
+      <div><label for="lang">Idioma da saída</label>
+        <select id="lang"><option value="">Mesmo da vaga</option><option>Português (Brasil)</option><option>English</option><option>Deutsch</option><option>Español</option></select></div>
+    </div>
+    <p class="hint">A chave fica só neste navegador (localStorage) e é enviada apenas ao seu servidor local, que a repassa ao OpenRouter.</p>
+  </section>
+
+  <section class="card">
+    <h2>2. Seu CV base</h2>
+    <label for="cv">Cole o texto do seu CV (fica salvo neste navegador)</label>
+    <textarea id="cv" placeholder="Nome, resumo, experiências, formação, habilidades..."></textarea>
+  </section>
+
+  <section class="card">
+    <h2>3. Vaga</h2>
+    <div class="row"><div style="flex:4 1 300px"><label for="url">Link da vaga</label><input id="url" type="url" placeholder="https://boards.greenhouse.io/empresa/jobs/123"></div>
+      <div style="flex:0 0 auto;align-self:end"><button id="analyze" class="primary">Analisar link</button></div></div>
+    <div id="err1" class="err"></div>
+    <div id="jobinfo" class="hidden">
+      <div class="chips"><span class="chip ats" id="atsChip"></span><span class="chip" id="srcChip"></span></div>
+      <div class="row">
+        <div><label for="title">Cargo</label><input id="title"></div>
+        <div><label for="company">Empresa</label><input id="company"></div>
+        <div><label for="loc">Local</label><input id="loc"></div>
+      </div>
+      <p></p><label for="desc">Descrição da vaga (edite ou cole manualmente se o link não carregou)</label>
+      <textarea id="desc"></textarea>
+    </div>
+    <p class="hint" id="manualHint">Se o link não abrir (LinkedIn costuma exigir login), <a href="#" id="manual">cole a descrição manualmente</a>.</p>
+    <label for="notes">Observações para a IA (opcional)</label>
+    <input id="notes" placeholder="Ex.: destaque liderança de equipe, evite mencionar o emprego de 2015">
+    <p></p><button id="tailor" class="primary">Adaptar CV e carta</button>
+    <div id="err2" class="err"></div>
+  </section>
+
+  <section id="result" class="hidden">
+    <div class="card">
+      <div class="row">
+        <div><div class="hint">Aderência estimada</div><div class="score" id="score"></div></div>
+        <div style="flex:3 1 300px"><div class="hint">Palavras-chave comprovadas</div><div class="chips" id="kw"></div></div>
+      </div>
+      <div class="grid">
+        <div><h2>Lacunas (não inventadas)</h2><ul id="gaps"></ul></div>
+        <div><h2>Dicas para o ATS</h2><ul id="tips"></ul></div>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="card" id="cvCard"><h2>CV adaptado</h2><div class="out" id="cvOut" contenteditable="true"></div>
+        <p class="row"><button data-copy="cvOut">Copiar</button><button data-dl="cvOut" data-name="cv.md">Baixar .md</button><button data-print="cvCard">Imprimir / PDF</button></p></div>
+      <div class="card" id="clCard"><h2>Carta de apresentação</h2><div class="out" id="clOut" contenteditable="true"></div>
+        <p class="row"><button data-copy="clOut">Copiar</button><button data-dl="clOut" data-name="carta.txt">Baixar .txt</button><button data-print="clCard">Imprimir / PDF</button></p></div>
+    </div>
+  </section>
+</main>
+<script>
+const $ = (id) => document.getElementById(id);
+const store = {
+  get(k) { try { return localStorage.getItem(k) || ''; } catch { return ''; } },
+  set(k, v) { try { localStorage.setItem(k, v); } catch {} },
+};
+for (const id of ['key', 'model', 'cv', 'lang']) {
+  const saved = store.get('vc_' + id);
+  if (saved) $(id).value = saved;
+  $(id).addEventListener('input', () => store.set('vc_' + id, $(id).value));
+}
+
+async function api(path, body, headers = {}) {
+  const res = await fetch(path, { method: 'POST', headers: { 'content-type': 'application/json', ...headers }, body: JSON.stringify(body) });
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.error || 'Erro');
+  return data;
+}
+function showJob(job) {
+  $('jobinfo').classList.remove('hidden');
+  $('atsChip').textContent = 'ATS: ' + (job.ats || 'Desconhecido');
+  $('srcChip').textContent = job.source === 'json-ld' ? 'dados estruturados' : job.source === 'manual' ? 'manual' : 'texto da página';
+  $('title').value = job.title || ''; $('company').value = job.company || '';
+  $('loc').value = job.location || ''; $('desc').value = job.description || '';
+}
+let currentAts = 'Desconhecido';
+
+$('manual').addEventListener('click', (e) => { e.preventDefault(); currentAts = 'Desconhecido'; showJob({ source: 'manual', ats: currentAts }); $('desc').focus(); });
+
+$('analyze').addEventListener('click', async () => {
+  $('err1').textContent = ''; $('analyze').disabled = true;
+  try {
+    const job = await api('/api/analyze', { url: $('url').value.trim() });
+    currentAts = job.ats; showJob(job);
+    if (!job.description || job.description.length < 200) $('err1').textContent = 'Pouca informação extraída. Revise ou cole a descrição manualmente.';
+  } catch (e) { $('err1').textContent = e.message; }
+  $('analyze').disabled = false;
+});
+
+const list = (el, items) => { el.replaceChildren(...items.map((t) => Object.assign(document.createElement('li'), { textContent: t }))); };
+
+$('tailor').addEventListener('click', async () => {
+  $('err2').textContent = ''; $('tailor').disabled = true; $('tailor').textContent = 'Adaptando...';
+  try {
+    const job = { title: $('title').value, company: $('company').value, location: $('loc').value, description: $('desc').value, ats: currentAts };
+    const r = await api('/api/tailor', { cv: $('cv').value, job, model: $('model').value.trim(), language: $('lang').value, notes: $('notes').value },
+      $('key').value ? { 'x-openrouter-key': $('key').value.trim() } : {});
+    $('result').classList.remove('hidden');
+    $('score').textContent = r.match_score + '%';
+    $('kw').replaceChildren(...r.keywords_matched.map((k) => Object.assign(document.createElement('span'), { className: 'chip', textContent: k })));
+    list($('gaps'), r.gaps.length ? r.gaps : ['Nenhuma lacuna relevante']); list($('tips'), r.ats_tips);
+    $('cvOut').textContent = r.cv_markdown; $('clOut').textContent = r.cover_letter;
+    $('result').scrollIntoView({ behavior: 'smooth' });
+  } catch (e) { $('err2').textContent = e.message; }
+  $('tailor').disabled = false; $('tailor').textContent = 'Adaptar CV e carta';
+});
+
+document.addEventListener('click', (e) => {
+  const t = e.target;
+  if (t.dataset.copy) navigator.clipboard.writeText($(t.dataset.copy).innerText);
+  if (t.dataset.dl) {
+    const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(new Blob([$(t.dataset.dl).innerText])), download: t.dataset.name });
+    a.click(); URL.revokeObjectURL(a.href);
+  }
+  if (t.dataset.print) {
+    const el = $(t.dataset.print); el.classList.add('printing'); window.print(); el.classList.remove('printing');
+  }
+});
+</script>
+</body>
+</html>
