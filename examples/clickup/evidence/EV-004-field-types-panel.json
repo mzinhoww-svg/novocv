@@ -1,0 +1,22 @@
+{
+  "source": "Fields side panel > Create new, list level, Free Forever, 2026-10-16",
+  "sections": {
+    "AI Suggestions": "4 suggestions generated from the list name (2 AI text fields, 1 dropdown, 1 website); content varies per list",
+    "Popular": ["Dropdown", "Text", "Date", "Text area (Long Text)", "Number", "Labels (Multi-select)", "AI Autofill"],
+    "All": ["Checkbox", "Date", "Dropdown", "Email", "Files", "Formula", "Labels (Multi-select)", "Location", "Money", "Number", "People", "Phone", "Progress (Auto)", "Progress (Manual)", "Rating", "Relationship", "Rollup", "Signature", "Tasks", "Text", "Text area (Long Text)", "Voting", "Website"]
+  },
+  "tabs": ["Create new", "Add existing"],
+  "header_actions": ["Open Custom Field Manager", "Close"],
+  "descriptions_excerpt": {
+    "Dropdown": "single select options for departments or categorization",
+    "Text": "one line of context",
+    "Date": "dates that are not the due date; shown on the Calendar view",
+    "Text area (Long Text)": "details with custom formatting",
+    "Number": "numbers associated with a task",
+    "Checkbox": "yes or no; can trigger automations",
+    "Files": "attachments; can trigger automations",
+    "People": "people who are not the assignee (RACI, requesters)",
+    "Location": "plot locations on a map",
+    "Money": "budget, cost, rates"
+  }
+}

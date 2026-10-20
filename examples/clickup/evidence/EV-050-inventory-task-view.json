@@ -1,0 +1,22 @@
+{
+  "script": "compact inventory (custom elements, data-test IDs, roles) on the task view in Full screen layout, board still mounted underneath. Record IDs replaced by :task. 2026-10-16",
+  "route": "/t/:team/:task",
+  "task_view_components_in_order": [
+    "cu-task-view (data-test task-view__mode--full-screen, task-view__container)",
+    "cu-task-view-header: task-view-header__arrow-previous, __arrow-next, __breadcrumbs (cu-task-view-breadcrumbs: space avatar, list, addToAnotherList), __created-at, cu-task-view-header-syncup-button, cu-task-view-menu-dropdown-button (__task-settings), cu-expanded-task-view-mode-switcher, task-close-v3",
+    "cu-task-view-body > cu-task-view-task-content (task-view-task-content__scrollable)",
+    "cu-task-hero-section: cu-task-view-task-label (task type, cu-custom-task-type-icon), cu-task-id-button, cu-task-hero-actions (add cover), cu-task-view-parent-task-link, cu-task-title (text area with overlay)",
+    "cu-content-assistant-task-banner, cu-duplicate-tasks (AI banner and duplicate detection)",
+    "cu-task-fields-container: Status (cu-status-button with badge, next-status arrow, checkmark), Assignees (cu-assignees), Dates (cu-task-view-dates-dropdown), Priority (cu-task-view-priority-dropdown), Track time (cu-task-time-tracker-v3), Tags (cu-task-hero-section-tags-dropdown)",
+    "cu-task-view-content-description > cu-task-editor (Quill rich editor: cu-quill-rich-editor-*, toolbar, markdown paste menu, inline comments, image generation, remote editing, description history, full screen)",
+    "cu-task-view-flat-layout: cu-task-view-custom-fields-section, cu-task-view-subtasks-section, cu-task-view-relationships-section, cu-task-view-checklists-section, cu-task-view-attachments-section",
+    "cu-task-view-right-sidebar (cu-task-view-floating-sidebar): cu-task-view-task-activity-lazy > cu-task-activity-search-and-filter, cu-activity-fields-filter, cu-task-activity-summary, cu-task-activity-stream (cu-task-activity-stream-item), cu-task-activity-add-comment (cu-comment-bar, cu-comment-users)",
+    "cu-task-view-links, cu-task-view-related, cu-task-view-goals-sidebar, cu-task-view-print-overlay, cu-attachments-viewer, cu-task-view-mode-menu"
+  ],
+  "field_test_ids": ["task-field-label-icon__container-Status", "view-task_task-status-v3", "status-button__status-dropdown", "status-button-badge__<status>", "status-button-badge__next-status", "status-button__checkmark", "task-field-label-icon__container-Assignees", "task-hero-section__assign-dropdown-toggle", "assignees-lazy__clear-assignees", "task-field-label-icon__container-Dates", "task-hero__date-toggle-dates__empty", "task-field-label-icon__container-Priority", "task-hero-section-priority-lazy__row-data-clear", "task-field-label-icon__container-Track time", "time-tracker-timer-toggle", "task-field-label-icon__container-Tags", "custom-field-value-tag__<tag>", "description-actions__history", "description-actions__full-screen", "prompt-template-empty-description__ai-button"],
+  "roles": { "button": 159, "presentation": 3, "separator": 1, "status": 3, "list": 1, "listitem": 1, "menu": 3, "tab": 4, "dialog": 1 },
+  "notes": [
+    "Test IDs embed task names (board-task__card__<task name>), so test IDs are not safe to publish from a production account without scrubbing.",
+    "The board stays mounted under the full-screen task view (its cards are still in the DOM)."
+  ]
+}

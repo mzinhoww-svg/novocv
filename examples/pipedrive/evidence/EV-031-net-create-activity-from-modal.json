@@ -1,0 +1,12 @@
+{
+  "script": "api-shapes.js (enumSamples off)",
+  "route": "/deal/:id",
+  "captured": "2026-10-16, s01, sandbox deal C: Save in the 'Schedule your next activity' modal",
+  "calls": [
+    {"call": "POST /api/v1/activities?session_token&strict_mode", "status": [201],
+     "request": {"subject": "string", "type": "string (defaulted to the first active type in company order)", "busy_flag": "null (no time set)", "due_date": "iso-date (today)", "attendees": [], "assigned_to_user_id": "number (operator)", "done": "boolean false", "deal_id": "number", "participants": [], "person_id": "null", "org_id": "number"},
+     "response_keys": ["id","user_id","done","type","due_date","due_time","duration","busy_flag","add_time","marked_as_done_time","subject","public_description","calendar_sync_include_context","location","org_id","person_id","deal_id","lead_id","project_id","active_flag","update_time","source_timezone","rec_rule","rec_rule_extension","rec_master_activity_id","conference_meeting_id","private","priority","outcome","note","created_by_user_id","location_* (address parts)","attendees","participants","series","is_recurring","org_name","person_name","deal_title","owner_name","assigned_to_user_id","type_name","company_id"]},
+    {"call": "GET /api/v1/data-police/dataQualityRules?enabled", "status": [200], "response_keys": ["importantFields", "requiredFields"], "use": "field quality rules (required/important) checked by the deal view"}
+  ],
+  "connector_check": "The created activity read back through the API: type = the company's first active type key, due_date today, due_time null, busy false, participants []"
+}

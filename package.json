@@ -1,0 +1,21 @@
+{
+  "name": "res",
+  "private": true,
+  "type": "module",
+  "description": "Development tests for RES (Reverse Engineering SaaS). The skill itself has no dependencies.",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.64.0"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "version": "0.4.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alextnetto/res.git"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "captured": "2026-10-16, s01, sandbox deal J deleted from its detail page (Delete deal in the confirmation dialog)",
+  "ui_call": {"call": "DELETE /api/v1/deals/:id?session_token&strict_mode", "status": [200], "request": null},
+  "after_delete_read_through_api_v2_connector": {
+    "activity_linked_to_the_deleted_deal": {"is_deleted": false, "done": false, "deal_id": "still the deleted deal's id", "due_date": "iso-date (future)", "owner_id": "operator"}
+  },
+  "ui_after_delete": "the deal page stays open with a 'deleted' badge, a Restore button, a banner with the permanent deletion date (30 days later) and the open activity still listed in Focus"
+}

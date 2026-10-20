@@ -1,0 +1,40 @@
+{
+  "script": "tokens.js on the board view (dark theme, body.dark-theme), plus tokens.element on board parts and semantic variables resolved on a card element. 2026-10-16. Variable names that tokens.js matched by value equality are omitted: they were unrelated (for example radius 6px matched --global-content-gutter).",
+  "sampled": 1969, "variablesTotal": 1847, "theme": "dark (user preference); variables declared on body.dark-theme, so they resolve empty on :root",
+  "semantic_variables": {
+    "--cu-background-main": "rgb(17,17,17)", "--cu-background-subtle": "rgb(25,25,25)", "--cu-background-elevated": "rgba(255,255,255,.0353)",
+    "--cu-background-menu": "rgb(25,25,25)", "--cu-background-tooltip": "rgb(42,42,42)", "--cu-background-on-main": "rgba(255,255,255,.0706)", "--cu-background-main-hover": "rgba(255,255,255,.0706)",
+    "--cu-background-success": "rgb(48,164,108)", "--cu-background-warning": "rgb(255,197,61)", "--cu-background-danger": "rgb(210,30,36)", "--cu-background-primary": "rgb(238,238,238)",
+    "--cu-content-default": "rgb(238,238,238)", "--cu-content-secondary": "rgb(180,180,180)", "--cu-content-tertiary": "rgb(123,123,123)", "--cu-content-placeholder": "rgb(110,110,110)", "--cu-content-disabled": "rgb(96,96,96)",
+    "--cu-content-success": "rgb(61,214,140)", "--cu-content-warning": "rgb(255,204,77)", "--cu-content-danger": "rgb(255,133,137)",
+    "--cu-border-default": "rgb(42,42,42)", "--cu-border-low-contrast": "rgb(34,34,34)", "--cu-border-high-contrast": "rgb(72,72,72)", "--cu-border-input": "rgb(110,110,110)",
+    "--cu-status-open": "rgb(110,110,110)",
+    "--cu-font-family": "-apple-system, BlinkMacSystemFont, Segoe UI Variable Text, ... sans-serif",
+    "--cu-font-size-1..8": [".375rem", ".5rem", ".625rem", ".6875rem", ".75rem", ".875rem", "1rem", "1.125rem"],
+    "--cu-font-weight": { "regular": 400, "medium": 500, "semibold": 600, "bold": 700 },
+    "--cu-border-size-1/2": ["1px", "2px"]
+  },
+  "variable_families_seen": "--cu-background-{main,subtle,elevated,menu,tooltip,success,warning,danger,...}-{hover,pressed,subtle}; --cu-content-{default,secondary,tertiary,placeholder,disabled,success,warning,danger,on-dark,on-light,on-primary}; --cu-border-{default,low-contrast,high-contrast,hover,input,success,danger,warning,on-dark,on-light}; --cu-font-size-1..15",
+  "elements": {
+    "column (cu3-board-group)": { "width": 264, "background": "transparent" },
+    "column header": { "height": 40, "padding": "8px", "background": "color-mix of status color, about 10% (gray for to do)" },
+    "status pill (cu-status-group-header)": { "height": 20, "radius": "6px", "padding": "2px 6px 2px 4px", "font": "11px/11px 500", "color": "rgb(255,255,255)", "background": "rgba(255,255,255,0.07) for to do" },
+    "card (.board-task)": { "width": 246, "height_min": 72, "background": "rgb(25,25,25)", "radius": "10px", "shadow": "rgba(255,255,255,0.333) 0 0 1px 0, rgba(0,0,0,0.055) 0 1px 2px 0", "padding_bottom": "4px" },
+    "card title link": { "font": "14px/20px 500", "color": "rgb(238,238,238)" },
+    "field toggle (cu-board-task-field-layout)": { "size": "24x24", "background": "rgb(25,25,25)", "border": "1px solid rgb(34,34,34)", "radius": "6px", "focus_ring": "rgb(238,238,238) 0 0 0 1px, rgb(49,49,49) 0 0 0 3px" },
+    "column footer": { "padding": "0 8px", "gap": "8px" }
+  },
+  "colors_by_frequency": [
+    ["rgb(25,25,25)", 72, "background (cards, menus)"], ["rgb(238,238,238)", 69, "text default"], ["rgb(180,180,180)", 68, "text secondary"],
+    ["rgb(34,34,34)", 52, "border low contrast"], ["rgb(17,17,17)", 20, "page background"], ["rgb(42,42,42)", 13, "border default"],
+    ["rgb(110,110,110)", 13, "placeholder text"], ["rgb(123,123,123)", 8, "tertiary text"], ["rgb(102,71,240)", 6, "brand purple (in progress status, links)"],
+    ["rgb(44,140,94)", 3, "complete status green"], ["rgb(255,133,137)", 1, "overdue date text"], ["rgb(255,204,77)", 1, "due today text"]
+  ],
+  "type_scale_top": ["16px/21.33 500 x34", "13px/13px 400 x29", "12px/16 500 x20", "14px/16 400 x18", "14px/16 500 x17", "14px/20 500 x13 (card titles)"],
+  "font_family": "system UI stack (-apple-system, system-ui, Segoe UI Variable Text, Segoe UI, roboto, Helvetica Neue, helvetica, arial, sans-serif); no web fonts loaded",
+  "spacing_top": ["4px x161", "8px x90", "7px x71", "2px x71", "6px x66", "3px x23", "11px x21", "10px x14", "12px x6"],
+  "radius_top": ["6px x117", "7px x28", "8px x20", "5px x18", "10px x15 (cards)", "12px x9", "4px x8", "666px x7 (pills)", "50% x1"],
+  "shadows": ["rgba(255,255,255,0.333) 0 0 1px 0, rgba(0,0,0,0.055) 0 1px 2px 0 (cards) x15", "rgba(0,0,0,0.106) 0 4px 6px -1px, rgba(0,0,0,0.106) 0 2px 4px -2px (popover)"],
+  "motion": ["transition scale 0.125s cubic-bezier(0.17,0.67,0.55,1.09) x10", "transition transform 0.3s cubic-bezier(0.17,0.67,0.55,1.09) x4", "transition transform 0.2s cubic-bezier(0.785,0.135,0.15,0.86) x3", "transition min-width 0.2s cubic-bezier(0.785,0.135,0.15,0.86) x2", "transition transform 0.22s cubic-bezier(0.16,1,0.3,1)"],
+  "zIndex": ["1 x6", "1000 x4", "2 x2", "15", "700", "999", "-1"]
+}

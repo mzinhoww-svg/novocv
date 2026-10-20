@@ -1,0 +1,5 @@
+Request list recorded by the api-shapes recorder while creating custom fields from the Custom Field Manager, 2026-10-16 (templates only)
+
+PUT /growth-v1/data/users/:id/configurations/dynamic_ui/entries/globalCreateBtn 200 x7
+
+Sent seven times while Create menus were opened and closed. The path suggests per-user UI state for the global Create button; its meaning is not confirmed.

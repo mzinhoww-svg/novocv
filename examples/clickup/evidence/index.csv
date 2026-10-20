@@ -1,0 +1,140 @@
+id,date,session,route,shows,masked
+EV-002,2026-10-16,s01,/:team/v/b/li/:list,"Board view of an empty list: three status columns and Add group",yes
+EV-001,2026-10-16,s01,Settings > App Center,"Integration list by category; none connected (text capture)",n/a
+EV-003,2026-10-16,s01,/:team/v/l/li/:list,"Fields side panel opened after creating a list: Create new tab with AI Suggestions, Popular and All field types",yes
+EV-004,2026-10-16,s01,/:team/v/l/li/:list,"Custom field types listed in the Fields panel (text capture)",n/a
+EV-005,2026-10-16,s01,/:team/v/b/li/:list,"Fetch requests on a full load of the board view (URL templates, no values)",n/a
+EV-006,2026-10-16,s01,/:team/v/b/li/:list,"Card hover toolbar and the priority picker opened from the card flag icon",yes
+EV-007,2026-10-16,s01,/:team/v/b/li/:list,"Network shape: set priority from a board card (PUT /tasks/v1/item)",n/a
+EV-008,2026-10-16,s01,/:team/v/b/li/:list,"Date picker opened from a card: start and due inputs, quick options, month grid, Set Recurring",yes
+EV-009,2026-10-16,s01,/:team/v/b/li:list,"Date picker with a start and due date selected (range highlighted)",yes
+EV-010,2026-10-16,s01,/:team/v/b/li/:list,"Card date chips: overdue in red (3 days ago), today in yellow, range Today - Mon; priority chip High",yes
+EV-011,2026-10-16,s01,/:team/v/b/li/:list,"inventory.js on the board (trimmed, IDs scrubbed)",n/a
+EV-012,2026-10-16,s01,/:team/v/b/li/:list,"After Mark complete on a card: card moved to COMPLETE, counts 53/1, toast Status changed with Undo; v-03 sits above v-02",yes
+EV-013,2026-10-16,s01,/:team/v/b/li/:list,"Card hover toolbar: Mark complete (tooltip), Add subtask, Rename, More",yes
+EV-014,2026-10-16,s01,/:team/v/b/li/:list,"Network shapes for card actions: dates, assignee, tag, mark complete, collapse group draft, column paging",n/a
+EV-015,2026-10-16,s01,/:team/v/b/li/:list,"Column menu (Group options) on a column with tasks: Collapse, Archive all, Automate status, Select all, Rename, Edit statuses",yes
+EV-016,2026-10-16,s01,/:team/v/b/li/:list,"Column menu on an empty column: no Archive all and no Select all",yes
+EV-017,2026-10-16,s01,/:team/v/b/li/:list,"Collapsed column as a vertical strip; Save view button appears in the toolbar (view draft)",yes
+EV-018,2026-10-16,s01,/:team/v/b/li/:list,"Board loading state: column header and card skeletons while the view re-queries",yes
+EV-019,2026-10-16,s01,/:team/v/b/li/:list,"Customize view side panel: name, More options, Fields, Filter, Group, Sort, Subtasks, Templates, view toggles (autosave, pin, private, protect, default), sharing",yes
+EV-020,2026-10-16,s01,/:team/v/b/li/:list,"Card size Small (draft): narrower columns, fields wrap; Save view visible; card options list (cover, stack fields, show empty fields, collapse empty columns)",yes
+EV-021,2026-10-16,s01,/:team/v/b/li/:list,"Card size Large (draft) and the Card cover options: Auto, None, Image (default), Task description",yes
+EV-022,2026-10-16,s01,/:team/v/b/li/:list,"Layout options panel: page and card layout toggles, task visibility, view settings, reset",yes
+EV-023,2026-10-16,s01,/:team/v/b/li/:list,"Stack fields on and Show empty fields off (draft): empty cards show only the title; filled fields stack one per row",yes
+EV-024,2026-10-16,s01,/:team/v/b/li/:list,"Card More menu: Copy link, Copy ID, New tab; Favorite, Rename, Unfollow, Remind me; Move to, Add to, Merge, Duplicate, Convert to, Custom Fields, Templates; Relationships, Task Type; Start timer, Send email to task; Archive, Delete; Sharing & Permissions",yes
+EV-025,2026-10-16,s01,/:team/v/b/li/:list,"Group by popover: field, direction, delete, Add subgroup; field options Status, Assignee, Priority, Tags, Due date, Task Type",yes
+EV-026,2026-10-16,s01,/:team/v/b/li/:list,"Board grouped by Priority (draft): Urgent, High, Normal, Low, No priority columns; cards show a status chip; Save view visible",yes
+EV-027,2026-10-16,s01,/:team/v/b/li/:list,"Group Priority with subgroup Status (draft): priority columns and collapsible status swimlanes with counts",yes
+EV-028,2026-10-16,s01,/:team/v/b/li/:list,"Bulk action bar after Select all in a column: count, clear, Status, Assignees, Dates, Custom Fields (disabled with no fields), Tags, Move/Add, Convert to Subtask, Copy, duplicate, archive, delete, More",yes
+EV-029,2026-10-16,s01,/:team/v/b/li/:list,"Inline create form inside a column: Task Name, Save (disabled while empty), Add assignee, Add dates, Add priority, Add tag",yes
+EV-030,2026-10-16,s01,/:team/v/b/li/:list,"After creating in IN PROGRESS: card at the top of the column with that status, form reopened below, toast Task created with Pin to bottom, Copy URL, View task",yes
+EV-031,2026-10-16,s01,/:team/v/b/li/:list (second tab),"Second tab 3 s after setting priority Low in the first tab: not updated yet",n/a
+EV-032,2026-10-16,s01,/:team/v/b/li/:list (second tab),"Second tab about 8 s later, no reload: card shows Low",n/a
+EV-033,2026-10-16,s01,/:team/v/b/li/:list,"Keyboard focus on a card field toggle (assignee): white rounded outline",yes
+EV-034,2026-10-16,s01,/:team/v/b/li/:list,"Keyboard focus order on a board card (text log)",n/a
+EV-035,2026-10-16,s01,/:team/v/b/li/:list,"tokens.js on the board in dark theme, element styles and semantic variables",n/a
+EV-036,2026-10-16,s01,/:team/v/b/li/:list,"Add group form: color dot, Status name, confirm check button (Enter does not submit)",yes
+EV-037,2026-10-16,s01,/:team/v/b/li/:list,"Dialog after Add group: Where should this new status apply? List only (default) or Entire Space",yes
+EV-038,2026-10-16,s01,/:team/v/b/li/:list,"New status column [RE] REVIEW inserted before COMPLETE, name shown uppercase",yes
+EV-039,2026-10-16,s01,/:team/v/b/li/:list,"Filters popover: Ask AI to build filters, Saved filters, Select filter list (Status, Tags, Due date, Priority, Assignee, Archived, Assigned comment, Created by, Date closed, Date created...)",yes
+EV-040,2026-10-16,s01,/:team/v/b/li/:list,"Tag picker on a card with a new name typed: Select an option, Create <name>, settings gear",yes
+EV-041,2026-10-16,s01,/:team/v/b/li/:list,"Assignee picker on a card: Search or enter email, Me (avatar masked), Assign with AI",yes
+EV-042,2026-10-16,s01,/:team/v/b/li/:list,"After assigning yourself: a prompt to add the task to your priorities with Don't ask again and Add to priorities (name masked)",yes
+EV-043,2026-10-16,s01,/:team/v/b/li/:list,"View Fields panel (Add existing): Shown (Task Name, Assignee, Dates, Priority, Tags), Properties (Date closed, Date created, Date updated, Status, Task ID, Task Type, Time tracked), Custom Fields in Workspace",yes
+EV-044,2026-10-16,s01,/:team/v/b/li/:list,"Fields panel lists 7 Custom Fields in Workspace (Category x2, Likes, Mode, Summary x2, Type) that the Custom Field Manager does not show",yes
+EV-045,2026-10-16,s01,/:team/settings (Custom Field Manager),"Custom Field Manager, All Custom Fields: No matching results found (same moment as EV-044)",yes
+EV-046,2026-10-16,s01,/:team/v/b/li/:list,"Probe log: counts, widths, virtual scroll, drag DOM, viewport (text)",n/a
+EV-047,2026-10-16,s01,/:team/v/l/li/:list,"Right after Create List: List settings dialog with AI suggested Default Task Type, Default views, Custom Fields, Statuses (Generating...), No thanks, Apply suggestions; Fields panel opened on the right",yes
+EV-048,2026-10-16,s01,/:team (sidebar),"Sidebar of the new workspace: Space with one List, channels Welcome and General (cropped above the direct messages)",n/a
+EV-050,2026-10-16,s01,/t/:team/:task,"Compact inventory of the task view: component tree and field test IDs",n/a
+EV-051,2026-10-16,s01,/t/:team/:task,"Task view (Full screen) annotated: 1 header, 2 hero (type, title, AI bar), 3 fields grid, 4 description, 5 sections (fields, subtasks, relations, checklist, attachments), 6 activity sidebar with comment box",yes
+EV-052,2026-10-16,s01,/t/:team/:task,"Switch layout popover on hover: Modal, Full screen (current), Sidebar",yes
+EV-053,2026-10-16,s01,/t/:team/:task,"Network on task open: call list and the task detail shape",n/a
+EV-054,2026-10-16,s01,/t/:team/:task,"Status picker in the task view: search, groups Not started (TO DO), Active (IN PROGRESS, [RE] REVIEW), Closed (COMPLETE)",yes
+EV-055,2026-10-16,s01,/t/:team/:task,"Description editor: '- ' turned into a bullet list; **bold** typed inline stayed literal; history and full-screen icons",yes
+EV-056,2026-10-16,s01,/t/:team/:task,"Comment composer with text and toolbar (add, AI, attach, mention, assign, emoji, clip, task, doc, send with menu)",yes
+EV-057,2026-10-16,s01,/t/:team/:task,"Posted comment in the activity stream (author masked), Just now, reactions, Reply; composer placeholder changes",yes
+EV-058,2026-10-16,s01,/t/:team/:task,"Network shapes for posting a comment; task viewed write; history item",n/a
+EV-059,2026-10-16,s01,/t/:team/:task,"Task view of an overdue task: Dates shows Start -> 3 days ago in red; empty fields read Empty (0.6 scale)",yes
+EV-060,2026-10-16,s01,/t/:team/:task,"216-character title wraps over four lines in the task view without truncation",yes
+EV-061,2026-10-16,s01,/t/:team/:task,"Add subtask opens the Subtasks section with Sort, expand, Suggest (AI), + and an input",yes
+EV-062,2026-10-16,s01,/t/:team/:task,"Subtasks section after two creates: 2 open with progress bar, table Name/Assignee/Priority, Add Task row; subtask count in the header; activity lines",yes
+EV-063,2026-10-16,s01,/t/:team/:task,"Network shape: create a subtask (task create endpoint), order indexes per grouping",n/a
+EV-064,2026-10-16,s01,/t/:team/:task,"Relate items menu: Relate a Task or Doc, This task blocks..., This task is blocked by..., New custom relationship",yes
+EV-065,2026-10-16,s01,/t/:team/:task,"Blocked task after adding a dependency: Blocked by row under the fields (warning icon), relation count in the header, Related/Dependencies tabs with a Blocked by table",yes
+EV-066,2026-10-16,s01,/t/:team/:task,"The other task shows Blocking (red icon) and an activity line You marked this task as blocking",yes
+EV-067,2026-10-16,s01,/t/:team/:task,"Create checklist creates a checklist named Checklist at once (name in edit mode), Add item, Add checklist (0.6 scale)",yes
+EV-068,2026-10-16,s01,/:team/v/b/li/:list,"Board after task-view edits: description icon on a card, 2 subtasks toggle, dependency warning badge with count",yes
+EV-069,2026-10-16,s01,/t/:team/:task,"Network shapes: dependency, checklist create, rename, items",n/a
+EV-070,2026-10-16,s01,/:team/v/b/li/:list,"Card property badges: 2 subtasks toggle, waiting-on dependency (yellow warning 1), blocking (red 1), checklist progress 0/3",yes
+EV-071,2026-10-16,s01,/t/:team/:task,"Checklists section: 3 open with progress bar, named checklist, items with circles, Add item, Add checklist; activity aggregates 'added 3 items'; header checklist count",yes
+EV-072,2026-10-16,s01,/t/:team/:task,"After resolving one item: 2 open, the item hides under Show 1 completed; item hover actions",yes
+EV-073,2026-10-16,s01,/t/:team/:task,"Next-status arrow moved TO DO to IN PROGRESS; activity line with both status colors; Status changed toast with Undo; Collapse empty fields link",yes
+EV-074,2026-10-16,s01,/t/:team/:task,"Sidebar layout: board stays visible on the left, the task opens as a right panel; layout popover shows Sidebar selected",yes
+EV-075,2026-10-16,s01,/t/:team/:task,"Modal layout: centered overlay over a dimmed page, activity panel inside the modal",yes
+EV-076,2026-10-16,s01,/t/:team/:task,"Task view More menu: card menu items plus Description history and Print",yes
+EV-077,2026-10-16,s01,/t/:team/:task,"Task type menu: Task (default), Milestone, Form Response, Meeting Note; Recommended Asset, Campaign, Goal, Person, Resource; Create Task Type; Fill with AI",yes
+EV-078,2026-10-16,s01,/t/:team/:task,"After a full reload: description with bullets and the comment persisted; the task opened in Full screen again (0.5 scale)",yes
+EV-079,2026-10-16,s01,/t/:team/:task,"Add fields in the task view: search, Create new / Add existing, Popular types, All types starting with Button",yes
+EV-080,2026-10-16,s01,/t/:team/:task,"Create Dropdown form: type switcher, Field name, Dropdown options with color dots, Set default, delete, Add option, AI option generator, AI Autofill, Permissions and settings, Cancel, Create",yes
+EV-081,2026-10-16,s01,/t/:team/:task,"Field Permissions and settings: description, permissions, exceptions (creator masked), Required in tasks, Pinned, Visible to Guests and Limited Members, Belongs to the list",yes
+EV-082,2026-10-16,s01,/t/:team/:task,"Clicking Required in tasks on Free Forever: tooltip explains the rule, the switch stays off, no message",yes
+EV-083,2026-10-16,s01,/t/:team/:task,"Clicking Pinned on Free Forever opens Upgrade to Business to unlock Pinning Custom Fields (USD price); closed without choosing",n/a
+EV-084,2026-10-16,s01,/t/:team/:task,"Number field form: Number format US (1,234.56) or EU (1.234,56)",yes
+EV-085,2026-10-16,s01,/t/:team/:task,"Money field form: currency BRL - Brazilian Real (R$), number format EU",n/a
+EV-086,2026-10-16,s01,Custom Field Manager,"Voting field form: emoji type, Hide users who have voted",n/a
+EV-087,2026-10-16,s01,Custom Field Manager,"Tasks field form: Relationship name, related to any task in the workspace or tasks from a specific List, Create rollup fields",n/a
+EV-088,2026-10-16,s01,Custom Field Manager,"People field form: show people from the entire workspace, show guests, select multiple people (on), include teams",n/a
+EV-089,2026-10-16,s01,Custom Field Manager,"Rating field form: emoji type (star), scale slider 1 to 5, default 3",n/a
+EV-090,2026-10-16,s01,Custom Field Manager,"Progress (Auto) form: track completion of subtasks, checklists, assigned comments; tasks without action items show 100% when done",n/a
+EV-091,2026-10-16,s01,Custom Field Manager,"Progress (Manual) form: start value 0, end value 100",n/a
+EV-092,2026-10-16,s01,Custom Field Manager,"Labels form: options required (Create disabled until one exists), color dots, Set default, manual sort, AI option generator",n/a
+EV-093,2026-10-16,s01,Custom Field Manager,"Relationship form: tasks from a specific List, related list required (the field's own list could not be chosen), create rollup fields from the related list",n/a
+EV-094,2026-10-16,s01,Custom Field Manager,"Button form: name, button label and color, Action required: Add automation",n/a
+EV-095,2026-10-16,s01,Custom Field Manager,"AI Summary preset: a Text area field with AI Autofill on and a prompt",n/a
+EV-096,2026-10-16,s01,Custom Field Manager,"Create new type menu, top: AI Fields (Summary, Custom Text, Custom Dropdown), then All",n/a
+EV-097,2026-10-16,s01,Custom Field Manager,"Create new type menu, bottom: Progress, Email, Phone, Categorize, Custom Dropdown, Translation, Sentiment, Tasks, Location, Rating, Voting, Signature, Button, Action Items, T-shirt Size",n/a
+EV-098,2026-10-16,s01,Custom Field Manager,"Custom Field Manager, all fields grouped by type with a Create <type> field link per group; columns Name, Type, Created by (masked), Date Created, Location(s)",yes
+EV-099,2026-10-16,s01,/t/:team/:task,"Network shapes for creating a custom field: definition, location, type_config per type",n/a
+EV-100,2026-10-16,s01,/t/:team/:task,"Task view Fields section: one row per field with type icon; dropdown picker with search, colored options and drag handles",yes
+EV-101,2026-10-16,s01,/t/:team/:task,"Labels field holding two labels as colored pills; money shows the R$ prefix while empty",n/a
+EV-102,2026-10-16,s01,/t/:team/:task,"Money field input in BRL with Brazilian separators: R$ 1.234,56",n/a
+EV-103,2026-10-16,s01,/t/:team/:task,"Number field with European format shows 1.234,5",n/a
+EV-104,2026-10-16,s01,/t/:team/:task,"Phone field input defaults to the flag and sample number of the profile country (masked: account data)",yes
+EV-105,2026-10-16,s01,/t/:team/:task,"Phone field after picking Brazil: (11) 90000-0000 with Brazilian mask",n/a
+EV-106,2026-10-16,s01,/t/:team/:task,"People field picker: Me (avatar masked) and Keep typing a full email to invite; activity lines per field change",yes
+EV-107,2026-10-16,s01,/t/:team/:task,"Manual progress field as a slider at 61%",n/a
+EV-108,2026-10-16,s01,/t/:team/:task,"Text area field edits in a large popover editor; voting shows a thumbs up with 0",n/a
+EV-109,2026-10-16,s01,/t/:team/:task,"Voting field after one vote: thumbs up with 1; textarea value on two lines",n/a
+EV-110,2026-10-16,s01,/t/:team/:task,"Signature field pad in Type mode renders the typed name in a script font; Clear, Cancel, Save",n/a
+EV-111,2026-10-16,s01,/t/:team/:task,"Saved values: rating 2 of 3 stars, signature image, text, textarea, voting 1, website as domain with favicon",n/a
+EV-112,2026-10-16,s01,/t/:team/:task,"Network shapes for setting each custom field value, and the usage counter response",n/a
+EV-113,2026-10-16,s01,/t/:team/:task,"Location field: typing a street shows one Google Places suggestion (Av. Paulista, São Paulo - SP, Brazil); people value masked",yes
+EV-114,2026-10-16,s01,/t/:team/:task,"Location saved as the formatted address; money and number with Brazilian and European separators",yes
+EV-115,2026-10-16,s01,/t/:team/:task,"Formula field simple editor: field, operator, field; message Select a second field to calculate; Advanced Editor toggle",n/a
+EV-116,2026-10-16,s01,/t/:team/:task,"Formula number + money shows R$ 2.469,06, formatted as money; people value masked",yes
+EV-117,2026-10-16,s01,/t/:team/:task,"Task view with every field filled; activity log has one line per field change (people line masked)",yes
+EV-118,2026-10-16,s01,/t/:team/:task,"Relate menu lists the Tasks and Relationship custom fields under the dependency options, then New custom relationship",n/a
+EV-119,2026-10-16,s01,/t/:team/:task,"Related section with a tab per relationship field ([RE] cf-tasks 1) and a table Name, Due date, Priority",yes
+EV-120,2026-10-16,s01,/:team/v/b/li/:list,"Board with all 22 custom fields shown (unsaved view draft): every field takes a row with its type icon; empty money and formula show R$ 0, rating three grey stars, voting 0, relationship fields an Add task button",yes
+EV-121,2026-10-16,s01,/:team/v/b/li/:list,"Card of [RE] all fields with every value: dropdown pill, text, textarea first line with ellipsis, number, money, date, checkbox, email, signature, voting, tasks chip with +, people (masked), rating, progress bars, labels, formula, phone, website, files dash, location truncated",yes
+EV-122,2026-10-16,s01,/:team/v/b/li/:list,"Clicking the dropdown pill on a card opens the same option picker inline; hovering the icon shows the field name and Custom Field",yes
+EV-123,2026-10-16,s01,/:team/v/b/li/:list,"Customize > Fields: Shown section grows as fields are toggled on; Properties; Custom Fields; Custom Fields in Workspace (7, not created by the study); Save view appears",yes
+EV-124,2026-10-16,s01,/:team/v/b/li/:list,"After a reload the board is back to its saved settings: no custom field rows, no Save view, search cleared",yes
+EV-125,2026-10-16,s01,/t/:team/:task,"Field settings popover from the row gear: type switcher, Advanced, name, options with manual sort, Add option, AI Autofill Off, delete icon, Cancel, Save",n/a
+EV-126,2026-10-16,s01,/t/:team/:task,"Delete confirmation: This action will delete this Custom Field from 1 task. Admins are able to restore deleted fields from the Trash.",n/a
+EV-127,2026-10-16,s01,/t/:team/:task,"After delete: the dropdown row is gone from the task and a toast says Field deleted successfully (no Undo)",yes
+EV-128,2026-10-16,s01,/:team/settings/trash,"Settings > Trash: deleted field listed with Location (1 location), Deleted on, Deleted by (masked); filter Me on by default; 30-day notice; Clear all Trash",yes
+EV-129,2026-10-16,s01,/t/:team/:task,"After Restore from Trash the dropdown field is back on the task with its old value [RE] opt A",yes
+EV-130,2026-10-16,s01,/t/:team/:task,"On another task the empty phone field now defaults to Brazil: the country picked earlier was saved to the user profile, not to the field",n/a
+EV-131,2026-10-16,s01,/t/:team/:task,"After picking the original country again (PUT /user/v1/user) and a reload, the phone field defaults to it (flag masked: account data); no phone value was saved",yes
+EV-132,2026-10-16,s01,/:team/v/b/li/:list,"Delete list confirmation: 54 tasks and templates within this List will be deleted; automations will become inactive",n/a
+EV-133,2026-10-16,s01,/:team/settings/trash,"Trash after deleting the list: one row for the list (tasks are not listed separately), Deleted by masked",yes
+EV-134,2026-10-16,s01,Custom Field Manager,"Custom Field Manager after deleting the list: All Custom Fields empty; sections Workspace Fields, Task Type Fields, Personal List, By Location, By Task Type",n/a
+EV-135,2026-10-16,s01,/:team/settings,"Tag Manager on Free Forever opens Upgrade to Business Plus (USD price); closed without choosing",n/a
+EV-136,2026-10-16,s01,/:team/v/b/li/:list,"Delete tag from the tag picker: Are you sure you want to delete the tag everywhere in this Space?",n/a
+EV-137,2026-10-16,s01,/:team/settings/trash,"Trash after teardown: the temporary task, the tag (tags go to Trash too) and the list; Deleted by masked; 30-day notice",yes
+EV-138,2026-10-16,s01,/:team/v/b/li/:list,"Global search for [RE] right after the list was deleted still lists its tasks (In Space)",yes
+EV-139,2026-10-16,s01,/t/:team/:task,"Accessible name of a custom field value cell (text)",n/a
+EV-140,2026-10-16,s01,Custom Field Manager,"Per-user UI state write for the global Create button (text)",n/a

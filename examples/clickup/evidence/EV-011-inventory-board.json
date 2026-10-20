@@ -1,0 +1,53 @@
+{
+  "script": "inventory.js (trimmed to board-relevant entries; record IDs in test IDs replaced by :task_id; browser-extension entries removed)",
+  "route": "/:team/v/b/li/:list", "date": "2026-10-16", "viewport_css": "1710x981", "devicePixelRatio": 2,
+  "page": { "lang": "en-US", "htmlClass": "cu-v3", "prefersDark": true, "serviceWorker": true, "iframes": [], "appVersionHint": "sessionStorage key APP_VERSION_REFRESH_4.26.2" },
+  "frameworks": { "Angular": "22.2.1", "React": "detected" },
+  "designSystemHints": { "classPrefixes_top": ["cu 679", "cdk 256", "board 109", "field 77", "row 61", "toggle 37"], "utilityClassCount": 1 },
+  "board_components": {
+    "cu3-board-view": "root of the board; data-test=board__card-size__medium",
+    "cu3-board": 1, "cu3-board-header": "column header strip (board-view__header)", "cu3-board-group-header": 3, "cu3-board-grouping-header-label": 3,
+    "cu-status-group-header": 3, "cu-status-group-indicator": 3, "cu-status-indicator": 3,
+    "cu3-board-grouping-header-wip": 3, "cu3-board-grouping-wip-label": 3,
+    "cu3-board-group": 3, "cdk-virtual-scroll-viewport": 4,
+    "cu3-board-task": "11 rendered for 54 tasks in the first column (virtual scroll)",
+    "cu-board-task-header": 11, "cu-board-task-fields": 11, "cu-board-task-field-layout": 44, "cu-board-task-custom-fields": 11,
+    "cu-assignees-field": 11, "cu-user-list-dropdown": 12, "cu-dates-field": 11, "cu-task-row-recurring-date-picker": 11, "cu-recurring-date-dropdown": 12,
+    "cu-priority-field": 11, "cu-priority-field-content": 11, "cu-priority-list-dropdown": 12,
+    "cu-tags-field": 11, "cu-task-row-tags": 11, "cu-tags-list": 11, "cu-tags-view": 11,
+    "cu-board-card-actions": "5 (hover toolbar, rendered on hover and kept)", "cu-board-actions-menu": 5,
+    "cu-view-setting-toggle": 6, "cu2-views-bar": 1, "cu-views-bar-container": 1, "cu-data-view-item": 2,
+    "cu-toast-new": 3, "cu3-icon": 227
+  },
+  "board_test_ids": [
+    "board__card-size__medium", "board-view__container", "board-header__group-header-list", "board-header__list-item__<status name>",
+    "board-group-header__colored_<status name>", "board-grouping-wip-label", "board-group__viewport__<n>", "board-group__task-list__<n>",
+    "board-group__task-list-item__:task_id", "board-group__footer__<n>", "board-task__field-layout", "board-task__assignees", "board-task__priority",
+    "board-task__card-actions", "board-task__card-actions__add-subtask", "priorities-list__dropdown", "priorities-list__dropdown-toggle",
+    "recurring-date-dropdown__dropdown", "task-row-recurring-date-picker__value", "task-row-recurring-date-picker__dual-dates", "task-row-tags-tag",
+    "view-grouping-settings", "view-grouping-toggle", "filter-value-list-dropdown__toggle", "show-closed-toggle-dropdown__button",
+    "view-assignee-filter-toggle", "me-mode-avatar-toggle", "search-filter-input", "create-task-menu__new-task-button", "create-task-menu-toggle",
+    "data-view-list__add", "views-bar__controller", "page-header-properties__assignee-picker", "page-header-properties__priority-picker",
+    "manager__toast_component_undo"
+  ],
+  "accessibility": {
+    "roles": { "button": 96, "treeitem": 31, "presentation": 3, "status": 3, "navigation": 1, "note": 1, "tree": 1, "separator": 1 },
+    "landmarks": { "header": 0, "nav": 0, "main": 1, "aside": 0, "footer": 0, "dialog": 1 },
+    "unnamed_controls_on_cards": [
+      "cu3-board-task > div.board-task > cu-board-task-header > button.open-task-clickable-area",
+      "cu-assignees-field > cu-user-list-dropdown > div.cu-dropdown > div.cu-dropdown__toggle",
+      "cu-task-row-recurring-date-picker > cu-recurring-date-dropdown > div.cu-dropdown__toggle",
+      "cu-priority-field > cu-priority-list-dropdown > div.cu-dropdown > div.cu-dropdown__toggle",
+      "cu-task-row-tags > cu-tags-list > div.cu-tags-list__toggle"
+    ],
+    "unnamed_controls_elsewhere": "views bar items and their dropdown toggles, me-mode avatar toggle, simple-bar hub links (30 total, capped)"
+  },
+  "routes": ["/t/:id/:id (task links on cards)", "/:team/v/l/li/:list", "/:team/v/b/li/:list", "/:team/v/li/:list/:view", "/:team/v/s/:space", "/:team/v/t/:id", "/:team/v/cn/:id", "/:team/chat/r/:id", "/:team/inbox", "/:team/my-work", "/:team/docs", "/:team/calendar", "/:team/ai", "/:team/hubs/dashboards", "/:team/hubs/whiteboards", "/:team/hubs/clips", "/:team/meetings"],
+  "thirdParty": { "scriptHosts": ["www.googletagmanager.com", "data.web.clickup.com", "app-cdn.clickup.com", "sdk.canny.io", "a cloudfront.net host", "googleads.g.doubleclick.net"], "sdks": ["Sentry", "Datadog", "Google Analytics", "Google Tag Manager"] },
+  "storage": {
+    "localStorage_examples": ["cu-task-view-checklists-section-collapsed", "cu-task-view-hide-empty-location-fields", "cu-task-view-hide-empty-task-type-fields", "cu-sidebar-filter", "cu-drafts", "cfm_grid_settings", "cf_by_task_type_was_enabled", "calendar-sidebar-visible", "ai-credits-banner-dismissed-:id", "access_token_meta"],
+    "localStorage_feature_flags": "many keys cu.SPLITIO.split.<flag> (Split.io feature flags cached in the browser; list capped at 150 keys)",
+    "sessionStorage": ["APP_VERSION_REFRESH_4.26.2", "cu-session--view-seen", "resourceLoadReport", "tab-id-closed-last-tab", "tab-id-value", "teamId"]
+  },
+  "notes": ["Scanned 2436 elements.", "Only 11 card elements exist for 54 tasks: the column is virtualized."]
+}

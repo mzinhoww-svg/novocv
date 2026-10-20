@@ -1,0 +1,35 @@
+{
+  "source": "Public API v2 responses read through the operator's API connector while creating sandbox fixtures (2026-10-16, s01). Values replaced by types; custom field keys replaced.",
+  "deal": {
+    "id": "int", "title": "string", "creator_user_id": "int", "owner_id": "int", "value": "number", "currency": "string (ISO 4217, e.g. BRL)",
+    "person_id": "int|null", "org_id": "int|null", "pipeline_id": "int", "stage_id": "int",
+    "status": "enum: open | won | lost (filter also accepts deleted)", "probability": "number|null (deal-level, overrides stage probability)",
+    "lost_reason": "string|null", "visible_to": "int enum: 1 owner and followers, 3 owner's visibility group (default seen on production deals), 5, 7",
+    "add_time": "iso-datetime UTC", "update_time": "iso-datetime|null", "stage_change_time": "iso-datetime|null",
+    "close_time": "iso-datetime|null", "won_time": "iso-datetime|null", "lost_time": "iso-datetime|null",
+    "local_won_date": "date|null", "local_lost_date": "date|null", "local_close_date": "date|null", "expected_close_date": "date|null",
+    "custom_fields": "object keyed by 40-hex field key",
+    "label_ids": "int[]", "is_deleted": "bool", "is_archived": "bool", "archive_time": "iso-datetime|null",
+    "origin": "string (e.g. Marketplace for deals created by an API app)", "origin_id": "string", "channel": "int|null", "channel_id": "string|null (app name for API-created deals)",
+    "acv": "number|null", "arr": "number|null", "mrr": "number|null"
+  },
+  "activity": {
+    "id": "int", "subject": "string", "type": "string (activity type key, company-defined list)", "owner_id": "int", "creator_user_id": "int",
+    "is_deleted": "bool", "add_time": "iso-datetime UTC", "update_time": "iso-datetime",
+    "deal_id": "int|null", "lead_id": "uuid|null", "person_id": "int|null", "org_id": "int|null", "project_id": "int|null",
+    "due_date": "date YYYY-MM-DD", "due_time": "HH:MM in UTC|null", "duration": "HH:MM|null",
+    "done": "bool", "busy": "bool (true by default when due_time is set, false without a time)", "marked_as_done_time": "iso-datetime|null",
+    "location": "object|null", "participants": "array of {person_id, primary} (empty when no person is linked)",
+    "conference_meeting_client": "string|null", "conference_meeting_url": "url|null", "conference_meeting_id": "string|null",
+    "public_description": "string|null", "priority": "int|null", "outcome": "int|null", "note": "string|null (HTML)", "private": "bool", "custom_fields": "object|null"
+  },
+  "organization": {
+    "id": "int", "name": "string", "owner_id": "int", "visible_to": "int", "add_time": "iso-datetime", "update_time": "iso-datetime|null",
+    "label_ids": "int[]", "website": "url|null", "linkedin": "url|null", "industry": "int|null", "annual_revenue": "int|null", "employee_count": "int|null",
+    "address": "object|null", "is_deleted": "bool", "custom_fields": "object"
+  },
+  "pipeline_with_stages": {
+    "id": "int", "name": "string", "is_deal_probability_enabled": "bool",
+    "stages": [{"id": "int", "name": "string", "deal_probability": "int 0-100", "is_deal_rot_enabled": "bool", "days_to_rotten": "int|null (0 accepted)"}]
+  }
+}

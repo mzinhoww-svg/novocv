@@ -1,0 +1,35 @@
+# Requests (fetch/XHR) seen by performance.getEntriesByType('resource') on a full load of the board view
+# Route: /:team/v/b/li/:list · 2026-10-16 · test workspace (Free Forever) · IDs replaced by :id · f = fetch
+# Host of the test workspace: frontdoor-prod-eu-west-1-2.clickup.com (the API gateway is regional)
+f ad.doubleclick.net/ccm/s/collect x1
+f analytics.google.com/g/collect x1
+f frontdoor-prod-eu-west-1-2.clickup.com/:id/core/:id/tasks/properties x1
+f frontdoor-prod-eu-west-1-2.clickup.com/:id/data/users/:id/configurations/dynamic_ui/entries/agentsAutomationsBtn x1
+f frontdoor-prod-eu-west-1-2.clickup.com/:id/data/workspaces/:id/configurations/card_free_trial/entries/hasBeenEnrolled x1
+f frontdoor-prod-eu-west-1-2.clickup.com/:id/data/workspaces/:id/onboarding/stepsAndTarget x1
+f frontdoor-prod-eu-west-1-2.clickup.com/:id/experience/:id/tasks/bulk x1
+f frontdoor-prod-eu-west-1-2.clickup.com/automation/filters/subcategory/:id/workflow x1
+f frontdoor-prod-eu-west-1-2.clickup.com/automation/subcategory/:id/workflow/count x1
+f frontdoor-prod-eu-west-1-2.clickup.com/automation/triggersUsage/:id x1
+f frontdoor-prod-eu-west-1-2.clickup.com/customFields/v2/field x1
+f frontdoor-prod-eu-west-1-2.clickup.com/data/v3/workspaces/:id/billing_usage/rules x1
+f frontdoor-prod-eu-west-1-2.clickup.com/data/v3/workspaces/:id/guides x1
+f frontdoor-prod-eu-west-1-2.clickup.com/entitlements/v1/team/:id/entitlements/aggregated_auto_ai x1
+f frontdoor-prod-eu-west-1-2.clickup.com/entitlements/v1/team/:id/entitlements/recurring_ai_meeting_bot x1
+f frontdoor-prod-eu-west-1-2.clickup.com/entitlements/v1/team/:id/entitlements/scheduled_reports x1
+f frontdoor-prod-eu-west-1-2.clickup.com/field/v3/experience/workspaces/:id/field/jobs/search x1
+f frontdoor-prod-eu-west-1-2.clickup.com/goals/v1/team/:id/goal x1
+f frontdoor-prod-eu-west-1-2.clickup.com/hierarchy/v1/team/:id/tray x1
+f frontdoor-prod-eu-west-1-2.clickup.com/home/user/:id/lineup x1
+f frontdoor-prod-eu-west-1-2.clickup.com/inbox/v3/workspaces/:id/notifications/bundles/stats/fetch x1
+f frontdoor-prod-eu-west-1-2.clickup.com/notification/v2/browserEnabledGlobally x1
+f frontdoor-prod-eu-west-1-2.clickup.com/notification/v2/team/:id/notificationSettings x1
+f frontdoor-prod-eu-west-1-2.clickup.com/payment/v1/team/:id/guestInfo x1
+f frontdoor-prod-eu-west-1-2.clickup.com/plan/v1/team/:id/trialAvailability x1
+f frontdoor-prod-eu-west-1-2.clickup.com/scheduling/v1/team/:id/time_entries/current x1
+f frontdoor-prod-eu-west-1-2.clickup.com/tasks/v1/tag x1
+f frontdoor-prod-eu-west-1-2.clickup.com/team/v1/team/:id/planChange x1
+f frontdoor-prod-eu-west-1-2.clickup.com/user/v1/team/:id/customRoles x1
+f frontdoor-prod-eu-west-1-2.clickup.com/user/v1/team/:id/profile/:id x1
+f frontdoor-prod-eu-west-1-2.clickup.com/view/v1/genericView x1
+f www.google.com/ccm/collect x1

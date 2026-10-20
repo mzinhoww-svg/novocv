@@ -1,0 +1,23 @@
+{
+  "script": "api-shapes.js (enumSamples off), telemetry hosts filtered out",
+  "route": "/pipeline/:id/user/everyone",
+  "captured": "2026-10-16, s01, sandbox board: open a card's activity popover, mark the deal's only open activity done, the 'Schedule your next activity' modal opens, cancel",
+  "auth_note": "Every /api call carries a session_token query parameter (value never recorded); the request headers were not recorded",
+  "calls_in_order": [
+    {"call": "GET /api/v1/deals/:id/activities?done&start&session_token&strict_mode", "status": [200], "use": "card popover list of open activities", "response": "data[] of activity (v1 shape: id, user_id, done, type, due_date, due_time, duration, busy_flag, marked_as_done_time, subject, org_id, person_id, deal_id, active_flag, private, priority, outcome, note, attendees, participants, rec_rule, org_name, ...)"},
+    {"call": "PUT /api/v1/activities/:id?session_token&strict_mode", "status": [200], "request": {"done": "boolean"}, "use": "mark as done", "response": "data: activity with marked_as_done_time iso-date, update_user_id number"},
+    {"call": "GET /api/v1/activities/:id", "status": [200], "use": "reload the activity"},
+    {"call": "GET /api/:id/fields/activity?activeOnly", "status": [200], "use": "activity form fields", "response": "data[]: id, field_type, field_code, field_name, custom_field_flag, active_flag, additional_data{ui_visibility{add_visible_flag, details_visible_flag}, mandatory_fields{mandatory_flag}}, order_nr, options[{id,order_nr,label}]"},
+    {"call": "GET /api/v1/users?include_deleted_users", "status": [200], "use": "owner picker", "response": "data[]: id, name, email<email>, locale, timezone_name, default_currency, active_flag, is_admin, role_id, is_you, access[{app, admin, permission_set_id<uuid>}]"},
+    {"call": "GET /api/v1/activityTypes", "status": [200], "use": "type icon row", "response": "data[]: id, key_string, name, order_nr, icon_key, color, active_flag, is_custom_flag"},
+    {"call": "GET /api/v1/deals/:id", "status": [200], "use": "prefill the deal link; the response now has next_activity_id/date/time null and undone_activities_count", "response": "data: id, user_id, org_id, stage_id, title, value, currency, status, probability, next_activity_date, next_activity_time, next_activity_id, last_activity_id, last_activity_date, visible_to<numeric-string>, pipeline_id, won_time, first_won_time, lost_time, products_count, files_count, notes_count, followers_count, activities_count, done_activities_count, undone_activities_count, participants_count, expected_close_date, origin, channel_id, is_archived, stage_order_nr, org_name, next_activity_subject, next_activity_type, ..."},
+    {"call": "GET /api/v1/organizations/:id", "status": [200], "use": "prefill the organization link"},
+    {"call": "GET /api/v1/fastis/sync/active", "status": [204], "use": "calendar sync check (no active sync)"},
+    {"call": "GET /api/v1/fastis/sync/:id/status", "status": [200], "response": {"data": {"status": "string"}}},
+    {"call": "GET /api/v1/deals/:id/participants?limit&start", "status": [200], "response": "data null (no participants)"},
+    {"call": "POST /proactive-cards-service/api/v1/triggers", "status": [200], "request": [{"triggerType": "string"}], "response": "data [] (in-app suggestion cards)"},
+    {"call": "GET /api/v1/scheduler/timeslots?start_date&end_date&is_active", "status": [200], "use": "meeting scheduler slots for the agenda", "response": "data [], related_objects.events []"},
+    {"call": "GET /api/v1/activities?start_date&end_date&user_id&limit&include_duration&include_private&include_recurring", "status": [200], "use": "day agenda in the right column of the modal (all the operator's activities that day)"}
+  ],
+  "telemetry_seen": ["POST https://vortex7z.pipedrive.com/pdx-2 (front-end performance, 14 calls)", "POST https://sesheta.pipedrive.com/e (product events, 4 calls)"]
+}

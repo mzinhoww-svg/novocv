@@ -1,0 +1,15 @@
+{
+  "script": "api-shapes.js (enumSamples off), telemetry omitted",
+  "captured": "2026-10-16, s01, sandbox deals: Lost with a comment, Reopen after Won, Add deal form",
+  "calls": [
+    {"action": "Mark as lost with reason and comment", "call": "PUT /api/v1/deals/:id?session_token&strict_mode", "request": {"lost_reason": "string", "status": "string (lost)"}},
+    {"action": "Mark as lost with reason and comment", "call": "POST /api/v1/notes?session_token&strict_mode", "request": {"deal_id": "number", "content": "string", "pinned_to_deal_flag": "boolean (true)"}},
+    {"action": "Reopen a won deal", "call": "PUT /api/v1/deals/:id?include_projects&session_token&strict_mode", "request": {"status": "string (open)"}},
+    {"action": "Mark as won", "call": "PUT /api/v1/deals/:id?include_projects&session_token&strict_mode", "note": "seen in the call list; request shape not dumped separately"},
+    {"action": "Won modal statistics", "call": "POST /api/v1/insights-api/deals/chart", "request": {"report_type": "string", "time_zone": "string", "currency": "string", "filter": [{"field": "string", "is_exactly": "number", "is_any_of": ["string"]}], "group_by": {"field": "string"}, "measure_by": "string"}},
+    {"action": "Won modal statistics", "call": "POST /api/v1/insights-api/activities/chart", "request": {"report_type": "string", "filter": [{"field": "string", "is_exactly": "boolean"}], "measure_by": "string"}},
+    {"action": "Save the Add deal form", "call": "POST /api/v1/deals?session_token&strict_mode", "status": [201], "request": {"pipeline_id": "number", "visible_to": "numeric-string", "user_id": "number", "stage_id": "number", "title": "string", "org_id": "number", "origin": "string", "origin_id": "null", "channel": "null", "channel_id": "null"}, "response": "v1 deal object with 81 keys"},
+    {"action": "Save the Add deal form", "call": "GET /api/:id/deals/count?archived_status&pipeline_id&quick_filter_id&status", "status": [200]},
+    {"action": "Delete a note", "call": "not captured (verified through the API: the deal has no notes afterwards)"}
+  ]
+}

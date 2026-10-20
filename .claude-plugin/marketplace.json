@@ -1,0 +1,21 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "res",
+  "description": "RES: reverse engineer a SaaS web product into a knowledge base for rebuilding it, without touching production data.",
+  "owner": {
+    "name": "Alex Netto",
+    "url": "https://alexnet.to"
+  },
+  "plugins": [
+    {
+      "name": "res",
+      "description": "Study a SaaS product through the browser and document screens, states, business rules, data model, API shapes, design tokens and production barriers, with a sandbox protocol, a change ledger and an automated check.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/reverse-engineering-saas"
+      ],
+      "version": "0.4.0"
+    }
+  ]
+}

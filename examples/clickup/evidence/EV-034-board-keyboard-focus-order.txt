@@ -1,0 +1,11 @@
+# Board keyboard probe, 2026-10-16, test workspace, real key events (Claude in Chrome key action)
+# Start: focus() on the first card's title link (a.board-task__name-link "[RE] minimal")
+title link: computed outline-style none (no visible ring on the title link)
+Tab 1 -> card hover toolbar: button "Mark complete" (aria-label)
+Tab 2 -> button with no accessible name (data-test=board-task__card-actions__add-subtask)
+Tab 3 -> button "Rename"
+Tab 4 -> button named by data-test board-actions-menu__ellipsis__<task name> (the More menu)
+Tab 5 -> div[tabindex=0] assignee toggle inside the card (white outline visible, EV-033)
+Down arrow -> focus does not move (no arrow-key navigation between cards)
+Inside one card: 2 buttons with tabindex=-1 (open-task area), 1 link (title), 4 div[tabindex=0] field toggles
+The hover toolbar is in the tab order even when the card is not hovered.

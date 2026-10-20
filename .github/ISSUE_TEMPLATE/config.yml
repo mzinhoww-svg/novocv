@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security problem
+    url: https://github.com/alextnetto/res/security/advisories/new
+    about: Report safety-rule failures and data leaks privately.

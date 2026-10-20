@@ -1,0 +1,14 @@
+{
+  "script": "api-shapes.js (enumSamples off), telemetry omitted",
+  "route": "/deal/:id",
+  "captured": "2026-10-16, s01, sandbox deal C: click a later stage in the stage bar",
+  "calls_in_order": [
+    {"call": "GET /api/v1/data-police/dataQualityRules/missingRequiredFields?deal_id&new_stage_id", "status": [200], "response_keys": ["dealId", "missingDealFields", "missingPersonFields", "missingOrganizationFields", "personId", "organizationId"], "use": "pre-check of fields required to enter the target stage (quality rules)"},
+    {"call": "PUT /api/v1/deals/:id?include_projects", "status": [200], "request": {"pipeline_id": "number", "stage_id": "number"}, "response": "full v1 deal (stage_id, stage_change_time, next_activity_*, counts ...)"},
+    {"call": "POST /api/:id/automation-suggestions/suggestions/trigger", "status": [200], "request": {"pattern": ["string"], "stageId": "number"}, "use": "decides whether to show the 'Recommended first automation' banner"},
+    {"call": "GET /api/v1/organizations/:id/", "status": [200]},
+    {"call": "GET /api/:id/automation-suggestions/suggestions/dismissed?kind&patterns", "status": [200]},
+    {"call": "GET /api/:id/automation-suggestions/suggestions?experimentVariant&onlyVisible&patterns", "status": [200], "count": 4},
+    {"call": "GET /api/v1/data-police/dataQualityRules?enabled", "status": [200]}
+  ]
+}

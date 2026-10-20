@@ -1,0 +1,61 @@
+{
+  "note": "api-shapes.js captures in the board view, one label per UI action, 2026-10-16. Shapes only. Host frontdoor-prod-eu-west-1-2.clickup.com omitted. '/:id/experience/:id/tasks/bulk' is '/task-v3/experience/:workspace/tasks/bulk'. Response bodies of tasks/bulk and genericView are summarized by their top-level keys.",
+  "open date picker": [
+    "GET /data/v3/workspaces/:id/workweek_schedules/reference/workspace/:id 200 -> {data}",
+    "GET /data/v3/workspaces/:id/schedule_exceptions/reference/workspace/:id 200 -> {data}"
+  ],
+  "close date picker after picking a due date (save happens on close)": {
+    "call": "PUT /tasks/v1/item?check_dependencies&check_remap_subtasks 200",
+    "request": { "item_ids": ["string"], "due_date": "number<epoch-ms>", "start_date": "string", "due_date_time": "boolean", "start_date_time": "boolean", "duration_is_elapsed": "boolean", "duration": {} },
+    "responseKeys": ["assignees", "followers", "removed_followers", "item_ids", "new_indexes", "unaccessible_tasks", "versions", "hist_ids", "dependencies_adjusted", "schedulingData"],
+    "enumSamples": { "response.schedulingData.changes[].type": ["direct"] }
+  },
+  "start today + due next week": {
+    "call": "PUT /tasks/v1/item?check_dependencies&check_remap_subtasks 200",
+    "request": { "item_ids": ["string"], "due_date": "number<epoch-ms>", "start_date": "number<epoch-ms>", "due_date_time": "boolean", "start_date_time": "boolean", "duration_is_elapsed": "boolean" }
+  },
+  "assign Me from the card": [
+    { "call": "PUT /tasks/v1/task/:id?check_dependencies&field_backlinks 200",
+      "request": { "assignees": { "add": ["number"], "rem": [] } },
+      "responseKeys": ["task", "newHistIds", "undo_order", "dependencies_adjusted", "version", "schedulingData"],
+      "enumSamples": { "response.task.type": ["task"], "response.task.status.status": ["to do"], "response.task.status.type": ["open"], "response.task.priority.priority": ["high"] } },
+    { "call": "POST /task-v3/experience/:id/tasks/bulk 200 (refetch)",
+      "request": { "ids": ["string"], "fields": ["string"], "customFieldIds": [], "taskRelationshipTypes": [], "relatedTaskFields": ["string"], "orderindexes": { "basic": ["string"] } },
+      "responseKeys": ["tasks", "statuses", "fields", "list_status_ids_map", "user_map", "group_map"],
+      "enumSamples": { "response.tasks[].status": ["found"], "response.statuses[].status": ["to do", "in progress", "complete"], "response.statuses[].type": ["open", "custom", "closed"] } },
+    "POST https://frontdoor-search.clickup-eu.com/graphql/gateway?q 200 (search index)"
+  ],
+  "create a tag from the card, applied on close": {
+    "call": "POST /tasks/v1/tag 200",
+    "request": { "name": "string", "tag_fg": "string<hex-color>", "tag_bg": "string<hex-color>", "new": "boolean", "task_ids": ["string"] }
+  },
+  "Mark complete from the card toolbar": [
+    { "call": "PUT /tasks/v1/item?check_dependencies&check_resolved 200",
+      "request": { "item_ids": ["string"], "status": "string" },
+      "responseKeys": ["assignees", "followers", "removed_followers", "item_ids", "orderindices", "new_indexes", "unaccessible_tasks", "versions", "hist_ids", "dependencies_adjusted", "schedulingData"],
+      "enumSamples": { "request.status": ["complete"] } },
+    { "call": "POST /task-v3/experience/:id/tasks/bulk 200",
+      "request": { "ids": ["string"], "fields": ["string"], "filterOmit": "string<long-text>", "customFieldIds": [], "taskRelationshipTypes": [], "relatedTaskFields": ["string"], "orderindexes": { "basic": ["string"], "status": [{ "listId": "string" }] }, "rollupFields": [], "includeClosedSubtasksInRollup": "boolean" },
+      "responseKeys": ["tasks", "statuses", "fields", "list_status_ids_map", "user_map", "group_map", "parent_task_map"] }
+  ],
+  "Collapse group (view draft, nothing saved)": [
+    "no request on click",
+    { "call": "POST /view/v1/genericView?fresh_req&include_empties&skip_max_length 200 (re-query with the draft view definition)",
+      "request": {
+        "id": "string", "members": [], "group_members": [], "name": "string", "parent": { "id": "string", "type": "number" }, "type": "number", "me_view": "boolean", "visibility": "number",
+        "settings": { "show_task_locations": "boolean", "show_task_properties": "boolean", "show_timer": "boolean", "show_subtasks": "number", "show_subtask_parent_names": "boolean", "show_assignees": "boolean", "show_images": "boolean", "show_empty_fields": "boolean", "collapse_empty_columns": "boolean", "me_comments": "boolean", "me_subtasks": "boolean", "me_checklists": "boolean", "show_closed_subtasks": "boolean", "show_task_ids": "boolean", "show_empty_statuses": "boolean", "time_in_status_view": "number", "field_rendering": "number", "colored_columns": "boolean", "card_size": "number", "task_cover": "number", "auto_wrap": "boolean", "is_description_pinned": "boolean", "parent_hierarchy_location_filter": "null", "show_sprint_cards": { "show_add_tasks": "boolean", "show_add_estimates": "boolean", "show_add_assignees": "boolean" }, "hide_tags_in_task_name": "boolean" },
+        "embed_settings": "null",
+        "grouping": { "field": "string", "dir": "number", "collapsed": ["string"], "ignore": "boolean" },
+        "divide": { "field": "null", "dir": "null", "collapsed": [], "by_subcategory": "null" },
+        "sorting": { "fields": [] },
+        "filters": { "search": "string", "show_closed": "boolean", "search_custom_fields": "boolean", "search_description": "boolean", "search_name": "boolean", "op": "string", "filter_group_ops": [], "filter_groups": [], "fields": [] },
+        "columns": { "fields": [{ "field": "string", "pinned": "boolean", "hidden": "boolean" }] },
+        "default": "boolean", "standard": "boolean", "standard_view": "boolean", "tasks_shared_with_me": "boolean",
+        "team_sidebar": { "assigned_comments": "boolean", "assignees": [], "group_assignees": [], "unassigned_tasks": "boolean" },
+        "auto_save": "boolean", "public_share_expires_on": "null", "share_tasks": "boolean", "board_settings": {}, "gallery_settings": {}, "sidebar_view": "boolean", "sidebar_orderindex": "null", "sidebar_num_subcats_between": "number", "doc_type": "number"
+      },
+      "responseKeys": ["board", "tasks", "team_id", "last_page", "overall_calculations", "permissions", "_version_vector"],
+      "enumSamples": { "response.board.groups[].data.status": ["to do", "in progress", "complete"], "response.board.groups[].data.type": ["open", "custom", "closed"], "response._version_vector.object_type": ["listDescendantsSet"] } }
+  ],
+  "scroll down inside a column (next page)": { "call": "POST /task-v3/experience/:id/tasks/bulk 200", "note": "same request shape as above; rendered cards went from 11 to 18" }
+}

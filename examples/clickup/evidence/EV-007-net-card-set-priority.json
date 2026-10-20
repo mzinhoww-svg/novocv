@@ -1,0 +1,24 @@
+{
+  "action": "Board card > flag icon > High",
+  "note": "Shape only. A task ID that the response used as an object key was replaced by :task_id. The service segment task-v3 was templated as :id by the recorder.",
+  "calls_in_order": [
+    "PUT /tasks/v1/item?check_dependencies 200",
+    "POST /:id/experience/:id/tasks/bulk 200 (refetch, path is /task-v3/experience/:workspace/tasks/bulk)",
+    "POST /:id/access/:id/task/acls/bulk?expand_groups&include_parents 200"
+  ],
+  "PUT /tasks/v1/item?check_dependencies": {
+    "request": { "item_ids": ["string"], "priority": "string<numeric-string>" },
+    "response": {
+      "assignees": { "add": [], "rem": [] }, "followers": { "add": [], "rem": [] }, "removed_followers": [], "item_ids": ["string"],
+      "new_indexes": { ":task_id": "string" }, "unaccessible_tasks": {},
+      "versions": [ { "object_type": "string", "object_id": "string", "workspace_id": "number", "operation": "string",
+        "data": { "context": { "ws_key": "string", "audit_context": { "userid": "number", "current_time": "number<epoch-ms>", "route": "string" }, "originating_service": "string" },
+          "changes": [ { "field": "string", "before": "null", "after": "string<numeric-string>", "history_id": "string<numeric-string>" } ],
+          "relationships": [ { "type": "string", "object_id": "string<epoch-ms-string>", "object_type": "string", "workspace_id": "number" } ] },
+        "master_id": "number", "version": "number", "deleted": "boolean", "traceparent": "string<numeric-string>", "date_created": "number<epoch-ms>", "date_updated": "number<epoch-ms>", "event_publish_time": "number<epoch-ms>" } ],
+      "hist_ids": { ":task_id": ["string<numeric-string>"] }, "dependencies_adjusted": [],
+      "schedulingData": { "changes": [], "reachedDependencyLimit": "boolean", "reachedSubtaskLimit": "boolean" }
+    },
+    "enumSamples": { "request.priority": ["2"], "response.versions[].object_type": ["task"], "response.versions[].data.relationships[].type": ["task-in-space", "task-in-folder", "task-in-list"], "response.versions[].data.relationships[].object_type": ["space", "folder", "list"] }
+  }
+}

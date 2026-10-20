@@ -1,0 +1,3 @@
+Accessibility tree, task view Fields section, 2026-10-16 (find tool output, trimmed)
+
+button "Set value for [RE] cf-phone Custom Field" - the value cell of the [RE] cf-phone row

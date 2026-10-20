@@ -1,0 +1,22 @@
+{
+  "source": "Settings > App Center > All Apps, test workspace on Free Forever, 2026-10-16",
+  "connected": 0,
+  "categories": {
+    "Featured": ["Dropbox", "Figma", "GitHub", "Gmail", "Google Calendar", "Google Drive", "Microsoft Teams", "Outlook Calendar", "Outlook Mail", "Salesforce", "Slack", "Zoom"],
+    "Analytics": ["Amplitude", "Grafana", "Hex", "Mixpanel"],
+    "Calendars": ["Calendar subscription (iCal)", "Calendly", "Google Calendar", "Outlook Calendar"],
+    "Cloud Storage": ["Box", "Dropbox", "Google Drive", "Microsoft OneDrive", "Microsoft SharePoint"],
+    "Communication": ["Discord", "Google Chat", "Microsoft Teams", "Slack", "UpMeet", "Zoom"],
+    "CRM & Support": ["Apollo", "Canny", "Clay", "Freshdesk Sync", "HubSpot", "Intercom", "Pipedrive Sync", "PostFlow", "Salesforce", "Salesforce Sync", "Zendesk Sync", "Ziflow", "ZoomInfo"],
+    "Design & Video": ["Canva", "Figma"],
+    "Development": ["Aikido Security", "Atlassian", "Azure DevOps Sync", "Bitbucket", "Datadog", "GitHub", "GitLab", "incident.io", "Jira", "Jira Sync", "Linear", "Make", "PractiTest", "Relay.app", "Sentry", "ServiceNow Sync", "Supabase", "Tableau", "Unito", "Zapier"],
+    "Email": ["Gmail", "Gmail Email", "Outlook Add-In", "Outlook Email", "Outlook Mail"],
+    "Finance & Accounting": ["Quickbooks Online Sync", "Stripe"],
+    "Knowledge Base": ["Airtable", "Confluence", "Notion"],
+    "Notetakers": ["Fireflies", "Granola", "Otter"],
+    "Time Tracking": ["Chrome Extension", "Clockify", "Everhour", "Harvest", "Hubstaff", "Memtime", "Rize", "Time Doctor", "Timeneye", "Toggl"],
+    "Custom MCP": ["Add Custom MCP Server"]
+  },
+  "build_with_us": ["MCP", "API docs", "Webhooks"],
+  "onboarding_tool_question": ["Slack", "Figma", "Notion", "Wrike", "Jira", "Todoist", "Basecamp", "Excel & CSV", "Trello", "Zoom", "Confluence", "Monday", "Google Drive", "Dropbox", "MS Teams", "GitHub", "Asana", "Salesforce"]
+}

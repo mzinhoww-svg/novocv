@@ -1,0 +1,12 @@
+# Board probes read from the DOM with the browser's JavaScript tool, 2026-10-16, test workspace
+# Each line: probe -> value read
+
+List view group header right after creating 54 tasks in a row (40 in about 60 s): "TO DO 29"; after reload: "TO DO 54", sidebar count 54
+Board column width by card size (cu3-board-group width, CSS px): Medium 264 (default), Small 200, Large 328; data-test on cu3-board-view changed to board__card-size__large
+Rendered card elements (cu3-board-task) in the first column with 53 tasks: 11 on load, 18 after scrolling down 5 wheel ticks (a tasks/bulk request fired)
+Sidebar list count after marking one task complete: 54 -> 53 (closed tasks are not counted); column counts TO DO 53, COMPLETE 1
+After Add group with scope "List only": columns TO DO, IN PROGRESS, [RE] REVIEW, COMPLETE (new status placed before the closed one)
+Card DOM: no cdk-drag class on cards; 8 elements with class cdk-drop-list on the board; no element with draggable=true
+Synthetic drag (pointer and mouse events, 25 moves) and the tool's left_click_drag: no preview, no placeholder, IN PROGRESS count stayed 0
+Viewport: innerWidth 1710, innerHeight 981, devicePixelRatio 2; screenshots arrive at 1456x835
+Background tab: performance first-paint at 45136 ms on a board load while the agent's tab was not visible (painting deferred until a screenshot)

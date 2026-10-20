@@ -1,0 +1,17 @@
+{
+  "action": "Post a plain comment on a task (no mentions), 2026-10-16. Shapes only.",
+  "calls_in_order": [
+    "PUT /task-v3/core/:id/tasks/:id/viewed {} (marks the task viewed: a hidden write when a task is opened or used)",
+    "GET /data/v3/workspaces/:id/reminders?is_completed -> {reminders[]}",
+    "POST /comments/v1/task/:id/comment",
+    "POST /comment-service/v3/workspaces/:id/comments/bulk?fields {ids[]}",
+    "GET /tasks/v1/task/:id/historyItems?hist_ids[]"
+  ],
+  "POST /comments/v1/task/:id/comment": {
+    "request": { "comment": [{ "text": "string", "attributes": { "block-id": "string" } }], "send_reply_to_channel": "boolean", "attachment": [], "followers": ["number"] },
+    "response": { "id": "number", "hist_id": "string<numeric-string>", "date": "number<epoch-ms>", "version": { "object_type": "comment", "data": { "context": { "root_parent_type": "number", "is_chat": "boolean" }, "relationships": [{ "type": "comment-author | comment-parent", "object_type": "user | task" }], "changes": [{ "field": "string", "after": "number<epoch-ms>" }] } }, "is_private": "boolean", "private_recipients": [] }
+  },
+  "comment_object (comments/bulk)": { "id": "string<numeric-string>", "date": "string<epoch-ms-string>", "parent": "string (task id)", "type": "number", "userid": "number", "resolved": "boolean", "resolved_by": "null", "assignee": "null", "assigned_by": "null", "date_resolved": "null", "date_updated": "null", "date_assigned": "string<epoch-ms-string>", "root_parent_id": "string", "root_parent_type": "number", "referenced_content": "string", "is_private": "boolean", "text_content": "string", "comment": [{ "text": "string", "attributes": "{...}" }], "reactions": [], "emails": [], "tagged_users": [], "email_attachments": [], "comment_type_data": {}, "x/y/page/image_x/image_y": "null (positions for comments on images and docs)" },
+  "history_item (historyItems)": { "id": "string<numeric-string>", "type": "number", "date": "string<epoch-ms-string>", "field": "string", "parent_id": "string", "data": {}, "source": "null", "user": { "id": "number", "username": "string", "email": "string<email>", "color": "string<hex-color>", "initials": "string", "profilePicture": "string<url>", "role": "number" }, "task_id": "string", "before": "null", "after": "string<numeric-string>", "comment": "the comment object plus thread counters (new_thread_count, threaded_replies, threaded_assignees, threaded_unresolved_count, thread_followers[])" },
+  "not_seen": "No request saved the description: it goes through the collaborative editor connection (task detail returns an editor_token), not fetch/XHR."
+}

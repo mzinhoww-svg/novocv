@@ -1,0 +1,190 @@
+{
+  "note": "Request shapes for setting one custom field value on a task. All types use POST /customFields/v1/task/:id/field/:id; DELETE on the same path clears it. Shapes recorded by the api-shapes recorder (types only, no values).",
+  "checkbox": {
+    "value": "boolean",
+    "value_richtext": "string"
+  },
+  "date": {
+    "value": "string<epoch-ms-string>",
+    "value_options": {
+      "time": "boolean"
+    },
+    "value_richtext": "string"
+  },
+  "dropdown": {
+    "value": "string<uuid> (option id)",
+    "value_richtext": "string"
+  },
+  "email": {
+    "value": "string<email>",
+    "value_richtext": "string"
+  },
+  "labels": {
+    "value": {
+      "add": [
+        "string<uuid> (label id)"
+      ],
+      "rem": []
+    },
+    "value_richtext": "string",
+    "note": "one request per label added; DELETE clears all"
+  },
+  "money": {
+    "value": "string",
+    "value_richtext": "string"
+  },
+  "number": {
+    "value": "string",
+    "value_richtext": "string"
+  },
+  "people": {
+    "value": {
+      "add": [
+        "number (user id)"
+      ],
+      "rem": []
+    },
+    "value_richtext": "string"
+  },
+  "phone": {
+    "value": "string",
+    "value_richtext": "string"
+  },
+  "rating": {
+    "value": "number",
+    "value_richtext": "string"
+  },
+  "progress_manual": {
+    "value": {
+      "current": "number"
+    },
+    "value_richtext": "string"
+  },
+  "text": {
+    "value": "string",
+    "value_richtext": "string"
+  },
+  "textarea": {
+    "value": "string",
+    "value_richtext": "string<long-text>"
+  },
+  "voting": {
+    "value": {
+      "add": [
+        "number (user id)"
+      ],
+      "rem": []
+    },
+    "value_richtext": "string"
+  },
+  "website": {
+    "value": "string<url>",
+    "value_richtext": "string"
+  },
+  "signature": {
+    "value": "string",
+    "value_options": {
+      "isTyped": "boolean",
+      "signedBy": "number (user id)"
+    },
+    "value_richtext": "string"
+  },
+  "location": {
+    "value": {
+      "formatted_address": "string",
+      "location": {
+        "lat": "number",
+        "lng": "number"
+      },
+      "place_id": "string"
+    },
+    "value_richtext": "string"
+  },
+  "response_common": {
+    "historyIds": [
+      "string<numeric-string>"
+    ],
+    "suppressedHistoryCount": "number",
+    "version": {
+      "object_type": "task",
+      "operation": "string",
+      "data": {
+        "changes": [
+          {
+            "field": "string",
+            "history_id": "string",
+            "before": "any",
+            "after": "any"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "task-in-space | task-in-folder | task-in-list",
+            "object_type": "space | folder | list"
+          }
+        ]
+      }
+    }
+  },
+  "entitlement_after_each_set": {
+    "call": "GET /entitlements/v1/team/:id/entitlements/custom_field_values",
+    "response": {
+      "type": "counter",
+      "entitled": "boolean",
+      "planLimits": "number",
+      "limit": "number",
+      "usage": "number",
+      "usageLeft": "number"
+    }
+  },
+  "tasks": {
+    "value": {
+      "add": [
+        "string (task id)"
+      ],
+      "rem": []
+    },
+    "note": "set from the Relate menu; the linked task shows in a Related section tab named after the field"
+  },
+  "formula_definition": {
+    "call": "PUT /customFields/v2/field/:id",
+    "request": {
+      "id": "string<uuid>",
+      "name": "string",
+      "type_config": {
+        "version": "string",
+        "reset_at": "number<epoch-ms>",
+        "is_dynamic": "boolean",
+        "return_types": [
+          "string"
+        ],
+        "calculation_state": "ready",
+        "formula": "string<long-text>",
+        "simple": "boolean"
+      },
+      "hide_from_guests": "boolean",
+      "pinned": "boolean",
+      "required": "boolean",
+      "required_on_subtasks": "boolean",
+      "description": "string",
+      "private": "boolean",
+      "entity": {
+        "type": "subcategory",
+        "id": "string (list id)"
+      }
+    },
+    "response_type_id": 17,
+    "note": "the formula lives on the field definition, so it applies to every task in the location; no per-task value request"
+  },
+  "phone_country_side_effect": {
+    "call": "PUT /user/v1/user",
+    "when": "picking a country in a Phone field's flag menu, with or without a number typed",
+    "request": "the user's profile with the new country code (country_iso_code); field list not recorded",
+    "note": "user-level write, outside the task and the field"
+  },
+  "delete_field": {
+    "call": "DELETE (inferred from the CORS preflight) /customFields/v2/field/:id?delete_all=true",
+    "when": "Delete in the field settings, after the confirmation dialog",
+    "note": "only the OPTIONS preflight was recorded by the browser tool; the method is inferred"
+  }
+}

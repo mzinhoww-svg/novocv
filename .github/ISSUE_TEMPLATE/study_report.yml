@@ -1,0 +1,42 @@
+name: Study report
+description: You ran a study on a real product. Tell us where the skill helped and where it got in the way.
+labels: [study-report]
+body:
+  - type: input
+    id: product
+    attributes:
+      label: Product studied
+      placeholder: "Pipedrive"
+    validations:
+      required: true
+  - type: dropdown
+    id: level
+    attributes:
+      label: Environment level
+      options:
+        - L1 dedicated trial account
+        - L2 separate workspace
+        - L3 sandbox container in production
+        - L4 observe only
+    validations:
+      required: true
+  - type: input
+    id: agent
+    attributes:
+      label: Agent, model and browser tool
+  - type: textarea
+    id: wrong
+    attributes:
+      label: Where the skill was wrong, missing or slow
+      description: Quote the step or rule. Do not paste customer data.
+    validations:
+      required: true
+  - type: textarea
+    id: right
+    attributes:
+      label: What worked well
+  - type: textarea
+    id: incidents
+    attributes:
+      label: Incidents
+      description: Any change the agent made outside the sandbox, or anything that reached a real person.

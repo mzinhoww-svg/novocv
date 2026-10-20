@@ -1,0 +1,15 @@
+{
+  "action": "Task view > Add subtask > type a name > Enter (twice), 2026-10-16. Shapes only. Same endpoint creates top-level tasks (without parent) [inf].",
+  "calls": ["GET /task-v3/experience/:id/tasks/:id/subtasks?include_archived&view", "POST /tasks/v1/subcategory/:list/task (x2)", "GET /:id/data/users/:id/configurations/dynamic_ui/entries/taskListHeaderAddColumnBtn"],
+  "POST /tasks/v1/subcategory/:list/task": {
+    "request": { "name": "string", "parent": "string (parent task id)", "projectId": "string (space)", "categoryId": "string (folder)", "category_id": "string", "subcategoryId": "string (list)", "assignees": [], "group_assignees": [], "followers": [], "priority": "string (none)", "status": "string", "fullStatus": { "id": "string", "status": "string", "orderindex": "number", "color": "string<hex-color>", "type": "string", "status_group": "string" }, "statuses": ["the list's status objects"], "tags": [], "id": "string (client-generated)", "subcategory_id": "string", "v2": "boolean", "check_required_custom_fields": "boolean", "use_preset_template": "boolean" },
+    "responseKeys": ["id", "task", "version", "schedulingData"],
+    "response.task keys": ["int_id", "id", "name", "creator", "date_created", "date_updated", "type", "status", "time_spent", "subcategory", "priority", "orderindex", "boardindex", "parent", "coverimage", "deleted", "date_deleted", "html_content", "text_content", "import_id", "import_uuid", "importing", "due_date", "due_date_time", "sent_due_date_notif", "points", "start_date", "start_date_time", "template", "time_estimate", "archived", "date_closed", "template_name", "recur_until", "show_completed", "recur_dst", "time_estimate_string", "encrypted", "recur_tz_offset", "recur_tz", "email_token", "private", "owner", "via", "recur_ignore_today", "assignee_orderindex", "priority_orderindex", "tag_orderindex", "due_date_orderindex", "subtask_orderindex", "date_done", "date_delegated", "status_id", "delegator", "draft_uuid", "deleted_by", "merged_to", "recur_settings", "default_category_id", "editor_token", "none_orderindex", "form_id", "field_orderindex", "subtask_sort", "subtask_sort_dir", "made_public_by", "made_public_time", "team_id", "permissions", "public_sharing", "template_field_ids", "custom_type", "date_active", "date_unstarted", "permanent_template_id", "subtask_parent", "workspace_id", "created_by_email", "is_summary_task", "duration", "... (capped at 80 keys)"],
+    "enumSamples": { "request.priority": ["none"], "request.status": ["to do"], "response.task.type": ["task"], "response.version.data.relationships[].type": ["task-parent", "task-in-space"] }
+  },
+  "notes": [
+    "Legacy hierarchy names in the internal API: project = Space, category = Folder, subcategory = List.",
+    "A task carries one manual order index per grouping: orderindex (status), boardindex, assignee_orderindex, priority_orderindex, tag_orderindex, due_date_orderindex, subtask_orderindex, none_orderindex, field_orderindex.",
+    "check_required_custom_fields is sent on create: the client asks the server to enforce required fields."
+  ]
+}

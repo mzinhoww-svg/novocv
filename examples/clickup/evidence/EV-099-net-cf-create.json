@@ -1,0 +1,16 @@
+{
+  "note": "Creating list-level custom fields, 2026-10-16. Shapes only. Two calls per field.",
+  "1 POST /customFields/v2/field?ignore_existing": {
+    "request": { "name": "string", "description": "string", "default_value": "null", "required": "boolean", "required_on_subtasks": "boolean", "pinned": "boolean", "hide_from_guests": "boolean", "type": "string", "private": "boolean", "permission_level": "null", "members": [], "groups": [], "type_config": "per type, see below", "subcategory_id": "string (list id)" },
+    "response": { "id": "string<uuid>", "name": "string", "type": "string", "type_config": {}, "values_set": "null", "userid": "string", "description": "string", "date_created": "string<epoch-ms-string>", "hide_from_guests": "boolean", "team_id": "string", "deleted": "boolean", "deleted_by": "null", "pinned": "boolean", "required": "boolean", "private": "boolean", "required_on_subtasks": "boolean", "linked_subcategory": "null", "permission_level": "null", "default_value": "null", "type_id": "number", "automation_count": "number", "members": [], "groups": [] }
+  },
+  "2 PUT /field/v3/experience/workspaces/:id/fields/:id/locations (204)": {
+    "request": { "new_locations": [{ "parent": { "type": "number (6 = List)", "id": "string" }, "required": "boolean", "required_on_subtasks": "boolean", "hide_from_guests": "boolean" }] }
+  },
+  "type_config by type": {
+    "drop_down": { "request": { "new_drop_down": "boolean", "sorting": "manual", "options": [{ "id": "null", "name": "string", "color": "string<hex-color>", "orderindex": "null|number" }] }, "response": { "sorting": "manual", "options": [{ "id": "string<uuid>", "name": "string", "value": "string", "type": "text", "color": "string<hex-color>", "orderindex": "number", "workspace_id": "string" }] } },
+    "number": { "number_format": "de-DE (EU) or en-US (US)", "use_grouping": "boolean" },
+    "currency": { "currency_type": "BRL", "precision": "number", "number_format": "de-DE" }
+  },
+  "also seen": "GET /customFields/v2/field/:id and POST /field/v3/experience/workspaces/:id/fields/bulk while the create form was open (lookups of existing fields)"
+}

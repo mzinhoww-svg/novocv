@@ -1,0 +1,50 @@
+{
+  "script": "inventory.js",
+  "route": "/pipeline/:id/user/everyone",
+  "captured": "2026-10-16, session s01, production pipeline board (read only)",
+  "sanitized": "numeric IDs in test IDs replaced by :id; one browser-extension script host and one extension sessionStorage key removed",
+  "page": {"lang": "en", "viewport": "1710x925", "dataTheme": "light", "prefersDark": true, "serviceWorker": false, "iframes": 2},
+  "frameworks": {"React": "detected"},
+  "classPrefixes": ["fe- (74, app shell)", "fs- (11)", "ff- (10)", "apt- (4)", "cui5- (design system classes, seen in control paths)", "intercom- (1)"],
+  "testIds": [
+    "data-test=stage-name x6", "data-test=stage-summary x6", "data-test=deals-list x6", "data-test=stage-add-deal-button x6",
+    "data-test=pipeline-deal-tile x6", "data-test=pipeline-deal-value x6", "data-testid=labels-read-item x4",
+    "data-test=stage-:id", "data-test=stage-header-:id", "data-test=droppable-stage-column-:id",
+    "data-test=deal-description-:id", "data-test=activity-status-indicator-:id",
+    "data-test=pipeline-view", "data-test=archive-list-button", "data-test=pipeline-add-deal", "data-test=deals-count",
+    "data-test=summary-icon-button", "data-testid=pipeline-select", "data-test=edit-pipeline-button",
+    "data-testid=filter-menu-button", "data-testid=filter-menu-name", "data-test=extra-actions-button",
+    "data-testid=quick-filter-toolbar-root", "data-testid=add-quick-condition-button", "data-testid=inline-info",
+    "data-test=change-sort-direction", "data-test=sort-dropdown", "data-test=scrollable",
+    "data-test=compound-modal", "data-test=sidebar", "data-test=sidebar--header", "data-test=sidebar--close", "data-test=sidebar--content",
+    "data-test=horizontal-scroll-setting", "data-test=enable-horizontal-scroll", "data-test=disable-horizontal-scroll",
+    "data-test=contextual-view-setting", "data-test=enable-contextual-view", "data-test=disable-contextual-view",
+    "data-test=filter-bar-setting", "data-test=show-pinned-filters", "data-test=show-quick-filters", "data-test=apply-layout-button",
+    "data-test=navbar-item-label-horizontal-{nova_menu,onboarding_page,contacts,activities,deals,lead,progress,mail}",
+    "data-testid=more-menu-toggle", "data-testid=quick-add-anchor", "data-cy=ai-chat-button", "data-testid=Dock-Options",
+    "data-testid=quick-help-btn", "data-testid=lightbulb-default", "data-testid=avatar-menu-btn", "data-test=account-menu-button"
+  ],
+  "roles": {"menuitem": 21, "button": 8, "img": 6, "tooltip": 4, "menu": 2, "dialog": 2, "status": 1, "complementary": 1},
+  "landmarks": {"header": 3, "nav": 1, "main": 1, "aside": 1, "footer": 0},
+  "unnamedControls": [
+    "header.fe-root-header > div.fe-root-header__center > div > button.cui5-button.cui5-button--variant-secondary",
+    "ol > li > div.cui5-spacing > button.cui5-button.cui5-button--variant-ghost",
+    "div > div > div > button.cui5-button.cui5-button--variant-ghost (x6)",
+    "body > div.cui5-compound-modal.global-modal > div.cui5-compound-modal__backdrop",
+    "body > div.cui5-dialog > div.cui5-dialog__backdrop"
+  ],
+  "routes": ["/deal/:id", "/get-started", "/nova-paywall", "/persons/list", "/activities/list/user/:id", "/pipeline/:id/user/everyone",
+    "/leads/inbox", "/progress/insights", "/mail", "/pulse/feed", "/products", "/projects/board", "/marketing/campaigns", "/app-catalog",
+    "/settings/automation", "/pulse/sequences", "/settings/sales-documents", "/settings/import", "/settings/export", "/settings/restore",
+    "/settings/auto_assignment", "/pipeline", "/deals", "/timeline", "/deals/archived"],
+  "thirdParty": {
+    "scriptHosts": ["cdn-segment.pipedrive.com x5", "dxi.pipedrive.com x2", "widget.intercom.io", "www.googletagmanager.com", "web-sdk-eu.aptrinsic.com", "web-experiments.pipedrive.com"],
+    "sdks": ["Segment", "FullStory", "Intercom", "Google Tag Manager"]
+  },
+  "localStorageKeys": [":id-:id-coachmarks-display", ":id-:id-coachmarks-session", "EXP_* (experiments)", "_fs_* (FullStory)", "ajs_* (Segment)",
+    "analytics_session_id", "automation:active-banner:ddv-activity-tab", "bulk-action", "com.grafana.faro.session", "intercom.intercom-state",
+    "marketplace-app-recommendations-:id", "pd:marketplace:app-onboarding-notifications", "pd_amplitude_session_id",
+    "proactive-alerting-cards.alert", "proactive-alerting-cards.notification", "search/recent_keywords_v2_:id::id"],
+  "sessionStorageKeys": ["EXP_*_DEFAULT_USER_PROVIDER", "EXP_*_REDIRECT_MARKER", "_fs_tab_id", "amp-exp-*-flags", "com.grafana.faro.lastNavigationId", "react-router-scroll-positions"],
+  "notes": ["Scanned 2537 elements.", "Storage lists key names only."]
+}
